@@ -1,8 +1,10 @@
-grammar hwk2;
+grammar HwK;
 
 /*
 * Parsing
 */
+
+compilationUnit: statement* EOF;
 
 imports: '@imp' ID ('.' ID)*;
 
@@ -10,9 +12,11 @@ type: ID;
 
 print: 'print(' ID ')';
 
-statement: variable;
+statement: variable | imports;
 
-variable: 'var' ID '=' (NUMBER | STRING)+;
+variable: 'var' ID '=' value;
+
+value: (NUMBER | STRING)+;
 
 /*
 * Lexer

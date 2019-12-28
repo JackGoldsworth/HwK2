@@ -13,6 +13,7 @@ repositories {
 dependencies {
     antlr "org.antlr:antlr4:4.7.2"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile group: 'org.ow2.asm', name: 'asm', version: '7.2'
 }
 
 compileKotlin {
