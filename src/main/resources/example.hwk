@@ -1,5 +1,2 @@
-@imp "math.hwk"
-
-var round = math.round(5.3)
-
-print(round)
+var test = 5
+print(test)

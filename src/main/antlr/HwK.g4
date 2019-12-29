@@ -12,7 +12,7 @@ type: ID;
 
 print: 'print(' ID ')';
 
-statement: variable | imports;
+statement: variable | print | imports;
 
 variable: 'var' ID '=' value;
 

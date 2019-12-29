@@ -11,15 +11,15 @@ import java.util.*
 class HwKTreeWalkListener : HwKBaseListener() {
 
     val instructions = ArrayDeque<Instruction>()
-    val variables = mutableMapOf<String, Variable>()
+    private val variables = mutableMapOf<String, Variable>()
 
     override fun exitVariable(ctx: HwKParser.VariableContext) {
         val value = ctx.value()
-        val textValue = value.text
+        val textValue = ctx.ID().text
         val variable = Variable(
             variables.size,
             ctx.value().getStart().type,
-            textValue
+            value.text
         )
         variables[textValue] = variable
         instructions.add(VariableInst(variable))
