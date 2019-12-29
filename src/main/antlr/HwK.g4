@@ -25,7 +25,7 @@ value: (NUMBER | STRING)+;
 WS: [ \t\n\r]+ -> skip;
 NUMBER: (DIGIT | HEX)+;
 ID: LETTER (LETTER | DIGIT)*;
-STRING: '"' (LETTER | DIGIT)* '"';
+STRING: '"' (LETTER | ' ' | DIGIT)* '"';
 fragment DIGIT: [0-9]+;
 fragment HEX: '0x' ([0-9] | [a-z] | [A-Z]);
 fragment LETTER: [a-zA-Z];

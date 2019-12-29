@@ -27,6 +27,6 @@ compileKotlin.dependsOn generateGrammarSource
 
 generateGrammarSource {
     maxHeapSize = "64m"
-    arguments += ["-visitor", "-long-messages"]
+    arguments += ["-visitor", "-long-messages", "-package", "me.jackgoldsworth.hwk2.parser"]
     outputDirectory = new File("src/main/java/me/jackgoldsworth/hwk2/parser/".toString())
 }
