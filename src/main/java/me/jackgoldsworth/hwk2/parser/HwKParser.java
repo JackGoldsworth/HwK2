@@ -8,7 +8,6 @@ import org.antlr.v4.runtime.atn.ParserATNSimulator;
 import org.antlr.v4.runtime.atn.PredictionContextCache;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
-import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.util.List;
@@ -24,15 +23,15 @@ public class HwKParser extends Parser {
             new PredictionContextCache();
     public static final int
             T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, WS = 7, NUMBER = 8, ID = 9,
-            STRING = 10;
+            OPERATION = 10, STRING = 11, ADD = 12, SUB = 13, MULT = 14, DIV = 15;
     public static final int
             RULE_compilationUnit = 0, RULE_imports = 1, RULE_type = 2, RULE_print = 3,
-            RULE_statement = 4, RULE_variable = 5, RULE_value = 6;
+            RULE_statement = 4, RULE_variable = 5, RULE_expression = 6, RULE_value = 7;
 
     private static String[] makeRuleNames() {
         return new String[]{
                 "compilationUnit", "imports", "type", "print", "statement", "variable",
-                "value"
+                "expression", "value"
         };
     }
 
@@ -40,7 +39,8 @@ public class HwKParser extends Parser {
 
     private static String[] makeLiteralNames() {
         return new String[]{
-                null, "'@imp'", "'.'", "'print('", "')'", "'var'", "'='"
+                null, "'@imp'", "'.'", "'print('", "')'", "'var'", "'='", null, null,
+                null, null, null, "'+'", "'-'", "'*'", "'/'"
         };
     }
 
@@ -48,7 +48,8 @@ public class HwKParser extends Parser {
 
     private static String[] makeSymbolicNames() {
         return new String[]{
-                null, null, null, null, null, null, null, "WS", "NUMBER", "ID", "STRING"
+                null, null, null, null, null, null, null, "WS", "NUMBER", "ID", "OPERATION",
+                "STRING", "ADD", "SUB", "MULT", "DIV"
         };
     }
 
@@ -143,12 +144,6 @@ public class HwKParser extends Parser {
         public void exitRule(ParseTreeListener listener) {
             if (listener instanceof HwKListener) ((HwKListener) listener).exitCompilationUnit(this);
         }
-
-        @Override
-        public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitCompilationUnit(this);
-            else return visitor.visitChildren(this);
-        }
     }
 
     public final CompilationUnitContext compilationUnit() throws RecognitionException {
@@ -158,21 +153,21 @@ public class HwKParser extends Parser {
         try {
             enterOuterAlt(_localctx, 1);
             {
-                setState(17);
+                setState(19);
                 _errHandler.sync(this);
                 _la = _input.LA(1);
                 while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__2) | (1L << T__4))) != 0)) {
                     {
                         {
-                            setState(14);
+                            setState(16);
                             statement();
                         }
                     }
-                    setState(19);
+                    setState(21);
                     _errHandler.sync(this);
                     _la = _input.LA(1);
                 }
-                setState(20);
+                setState(22);
                 match(EOF);
             }
         } catch (RecognitionException re) {
@@ -212,12 +207,6 @@ public class HwKParser extends Parser {
         public void exitRule(ParseTreeListener listener) {
             if (listener instanceof HwKListener) ((HwKListener) listener).exitImports(this);
         }
-
-        @Override
-        public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitImports(this);
-            else return visitor.visitChildren(this);
-        }
     }
 
     public final ImportsContext imports() throws RecognitionException {
@@ -227,23 +216,23 @@ public class HwKParser extends Parser {
         try {
             enterOuterAlt(_localctx, 1);
             {
-                setState(22);
+                setState(24);
                 match(T__0);
-                setState(23);
+                setState(25);
                 match(ID);
-                setState(28);
+                setState(30);
                 _errHandler.sync(this);
                 _la = _input.LA(1);
                 while (_la == T__1) {
                     {
                         {
-                            setState(24);
+                            setState(26);
                             match(T__1);
-                            setState(25);
+                            setState(27);
                             match(ID);
                         }
                     }
-                    setState(30);
+                    setState(32);
                     _errHandler.sync(this);
                     _la = _input.LA(1);
                 }
@@ -281,12 +270,6 @@ public class HwKParser extends Parser {
         public void exitRule(ParseTreeListener listener) {
             if (listener instanceof HwKListener) ((HwKListener) listener).exitType(this);
         }
-
-        @Override
-        public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitType(this);
-            else return visitor.visitChildren(this);
-        }
     }
 
     public final TypeContext type() throws RecognitionException {
@@ -295,7 +278,7 @@ public class HwKParser extends Parser {
         try {
             enterOuterAlt(_localctx, 1);
             {
-                setState(31);
+                setState(33);
                 match(ID);
             }
         } catch (RecognitionException re) {
@@ -331,12 +314,6 @@ public class HwKParser extends Parser {
         public void exitRule(ParseTreeListener listener) {
             if (listener instanceof HwKListener) ((HwKListener) listener).exitPrint(this);
         }
-
-        @Override
-        public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitPrint(this);
-            else return visitor.visitChildren(this);
-        }
     }
 
     public final PrintContext print() throws RecognitionException {
@@ -345,11 +322,11 @@ public class HwKParser extends Parser {
         try {
             enterOuterAlt(_localctx, 1);
             {
-                setState(33);
-                match(T__2);
-                setState(34);
-                match(ID);
                 setState(35);
+                match(T__2);
+                setState(36);
+                match(ID);
+                setState(37);
                 match(T__3);
             }
         } catch (RecognitionException re) {
@@ -393,39 +370,33 @@ public class HwKParser extends Parser {
         public void exitRule(ParseTreeListener listener) {
             if (listener instanceof HwKListener) ((HwKListener) listener).exitStatement(this);
         }
-
-        @Override
-        public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitStatement(this);
-            else return visitor.visitChildren(this);
-        }
     }
 
     public final StatementContext statement() throws RecognitionException {
         StatementContext _localctx = new StatementContext(_ctx, getState());
         enterRule(_localctx, 8, RULE_statement);
         try {
-            setState(40);
+            setState(42);
             _errHandler.sync(this);
             switch (_input.LA(1)) {
                 case T__4:
                     enterOuterAlt(_localctx, 1);
                 {
-                    setState(37);
+                    setState(39);
                     variable();
                 }
                 break;
                 case T__2:
                     enterOuterAlt(_localctx, 2);
                 {
-                    setState(38);
+                    setState(40);
                     print();
                 }
                 break;
                 case T__0:
                     enterOuterAlt(_localctx, 3);
                 {
-                    setState(39);
+                    setState(41);
                     imports();
                 }
                 break;
@@ -447,8 +418,8 @@ public class HwKParser extends Parser {
             return getToken(HwKParser.ID, 0);
         }
 
-        public ValueContext value() {
-            return getRuleContext(ValueContext.class, 0);
+        public ExpressionContext expression() {
+            return getRuleContext(ExpressionContext.class, 0);
         }
 
         public VariableContext(ParserRuleContext parent, int invokingState) {
@@ -469,12 +440,6 @@ public class HwKParser extends Parser {
         public void exitRule(ParseTreeListener listener) {
             if (listener instanceof HwKListener) ((HwKListener) listener).exitVariable(this);
         }
-
-        @Override
-        public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitVariable(this);
-            else return visitor.visitChildren(this);
-        }
     }
 
     public final VariableContext variable() throws RecognitionException {
@@ -483,14 +448,78 @@ public class HwKParser extends Parser {
         try {
             enterOuterAlt(_localctx, 1);
             {
-                setState(42);
-                match(T__4);
-                setState(43);
-                match(ID);
                 setState(44);
-                match(T__5);
+                match(T__4);
                 setState(45);
-                value();
+                match(ID);
+                setState(46);
+                match(T__5);
+                setState(47);
+                expression();
+            }
+        } catch (RecognitionException re) {
+            _localctx.exception = re;
+            _errHandler.reportError(this, re);
+            _errHandler.recover(this, re);
+        } finally {
+            exitRule();
+        }
+        return _localctx;
+    }
+
+    public static class ExpressionContext extends ParserRuleContext {
+        public TerminalNode ID() {
+            return getToken(HwKParser.ID, 0);
+        }
+
+        public ValueContext value() {
+            return getRuleContext(ValueContext.class, 0);
+        }
+
+        public ExpressionContext(ParserRuleContext parent, int invokingState) {
+            super(parent, invokingState);
+        }
+
+        @Override
+        public int getRuleIndex() {
+            return RULE_expression;
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener) {
+            if (listener instanceof HwKListener) ((HwKListener) listener).enterExpression(this);
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener) {
+            if (listener instanceof HwKListener) ((HwKListener) listener).exitExpression(this);
+        }
+    }
+
+    public final ExpressionContext expression() throws RecognitionException {
+        ExpressionContext _localctx = new ExpressionContext(_ctx, getState());
+        enterRule(_localctx, 12, RULE_expression);
+        try {
+            setState(51);
+            _errHandler.sync(this);
+            switch (_input.LA(1)) {
+                case ID:
+                    enterOuterAlt(_localctx, 1);
+                {
+                    setState(49);
+                    match(ID);
+                }
+                break;
+                case NUMBER:
+                case STRING:
+                    enterOuterAlt(_localctx, 2);
+                {
+                    setState(50);
+                    value();
+                }
+                break;
+                default:
+                    throw new NoViableAltException(this);
             }
         } catch (RecognitionException re) {
             _localctx.exception = re;
@@ -537,28 +566,22 @@ public class HwKParser extends Parser {
         public void exitRule(ParseTreeListener listener) {
             if (listener instanceof HwKListener) ((HwKListener) listener).exitValue(this);
         }
-
-        @Override
-        public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-            if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitValue(this);
-            else return visitor.visitChildren(this);
-        }
     }
 
     public final ValueContext value() throws RecognitionException {
         ValueContext _localctx = new ValueContext(_ctx, getState());
-        enterRule(_localctx, 12, RULE_value);
+        enterRule(_localctx, 14, RULE_value);
         int _la;
         try {
             enterOuterAlt(_localctx, 1);
             {
-                setState(48);
+                setState(54);
                 _errHandler.sync(this);
                 _la = _input.LA(1);
                 do {
                     {
                         {
-                            setState(47);
+                            setState(53);
                             _la = _input.LA(1);
                             if (!(_la == NUMBER || _la == STRING)) {
                                 _errHandler.recoverInline(this);
@@ -569,7 +592,7 @@ public class HwKParser extends Parser {
                             }
                         }
                     }
-                    setState(50);
+                    setState(56);
                     _errHandler.sync(this);
                     _la = _input.LA(1);
                 } while (_la == NUMBER || _la == STRING);
@@ -585,20 +608,22 @@ public class HwKParser extends Parser {
     }
 
     public static final String _serializedATN =
-            "\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\f\67\4\2\t\2\4\3" +
-                    "\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\7\2\22\n\2\f\2\16\2\25" +
-                    "\13\2\3\2\3\2\3\3\3\3\3\3\3\3\7\3\35\n\3\f\3\16\3 \13\3\3\4\3\4\3\5\3" +
-                    "\5\3\5\3\5\3\6\3\6\3\6\5\6+\n\6\3\7\3\7\3\7\3\7\3\7\3\b\6\b\63\n\b\r\b" +
-                    "\16\b\64\3\b\2\2\t\2\4\6\b\n\f\16\2\3\4\2\n\n\f\f\2\64\2\23\3\2\2\2\4" +
-                    "\30\3\2\2\2\6!\3\2\2\2\b#\3\2\2\2\n*\3\2\2\2\f,\3\2\2\2\16\62\3\2\2\2" +
-                    "\20\22\5\n\6\2\21\20\3\2\2\2\22\25\3\2\2\2\23\21\3\2\2\2\23\24\3\2\2\2" +
-                    "\24\26\3\2\2\2\25\23\3\2\2\2\26\27\7\2\2\3\27\3\3\2\2\2\30\31\7\3\2\2" +
-                    "\31\36\7\13\2\2\32\33\7\4\2\2\33\35\7\13\2\2\34\32\3\2\2\2\35 \3\2\2\2" +
-                    "\36\34\3\2\2\2\36\37\3\2\2\2\37\5\3\2\2\2 \36\3\2\2\2!\"\7\13\2\2\"\7" +
-                    "\3\2\2\2#$\7\5\2\2$%\7\13\2\2%&\7\6\2\2&\t\3\2\2\2\'+\5\f\7\2(+\5\b\5" +
-                    "\2)+\5\4\3\2*\'\3\2\2\2*(\3\2\2\2*)\3\2\2\2+\13\3\2\2\2,-\7\7\2\2-.\7" +
-                    "\13\2\2./\7\b\2\2/\60\5\16\b\2\60\r\3\2\2\2\61\63\t\2\2\2\62\61\3\2\2" +
-                    "\2\63\64\3\2\2\2\64\62\3\2\2\2\64\65\3\2\2\2\65\17\3\2\2\2\6\23\36*\64";
+            "\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\21=\4\2\t\2\4\3\t" +
+                    "\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\7\2\24\n\2\f\2" +
+                    "\16\2\27\13\2\3\2\3\2\3\3\3\3\3\3\3\3\7\3\37\n\3\f\3\16\3\"\13\3\3\4\3" +
+                    "\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\5\6-\n\6\3\7\3\7\3\7\3\7\3\7\3\b\3\b\5" +
+                    "\b\66\n\b\3\t\6\t9\n\t\r\t\16\t:\3\t\2\2\n\2\4\6\b\n\f\16\20\2\3\4\2\n" +
+                    "\n\r\r\2:\2\25\3\2\2\2\4\32\3\2\2\2\6#\3\2\2\2\b%\3\2\2\2\n,\3\2\2\2\f" +
+                    ".\3\2\2\2\16\65\3\2\2\2\208\3\2\2\2\22\24\5\n\6\2\23\22\3\2\2\2\24\27" +
+                    "\3\2\2\2\25\23\3\2\2\2\25\26\3\2\2\2\26\30\3\2\2\2\27\25\3\2\2\2\30\31" +
+                    "\7\2\2\3\31\3\3\2\2\2\32\33\7\3\2\2\33 \7\13\2\2\34\35\7\4\2\2\35\37\7" +
+                    "\13\2\2\36\34\3\2\2\2\37\"\3\2\2\2 \36\3\2\2\2 !\3\2\2\2!\5\3\2\2\2\"" +
+                    " \3\2\2\2#$\7\13\2\2$\7\3\2\2\2%&\7\5\2\2&\'\7\13\2\2\'(\7\6\2\2(\t\3" +
+                    "\2\2\2)-\5\f\7\2*-\5\b\5\2+-\5\4\3\2,)\3\2\2\2,*\3\2\2\2,+\3\2\2\2-\13" +
+                    "\3\2\2\2./\7\7\2\2/\60\7\13\2\2\60\61\7\b\2\2\61\62\5\16\b\2\62\r\3\2" +
+                    "\2\2\63\66\7\13\2\2\64\66\5\20\t\2\65\63\3\2\2\2\65\64\3\2\2\2\66\17\3" +
+                    "\2\2\2\679\t\2\2\28\67\3\2\2\29:\3\2\2\2:8\3\2\2\2:;\3\2\2\2;\21\3\2\2" +
+                    "\2\7\25 ,\65:";
     public static final ATN _ATN =
             new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 

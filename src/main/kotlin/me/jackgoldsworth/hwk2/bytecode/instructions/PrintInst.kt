@@ -8,9 +8,12 @@ import org.objectweb.asm.Opcodes
 class PrintInst(private val variable: Variable) : Instruction {
 
     override fun apply(visitor: MethodVisitor) {
-        val type = variable.type
+        var type = variable.type
         val id = variable.index
         visitor.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;")
+        if (type == HwKLexer.ID) {
+            type = variable.otherVar!!.type
+        }
         if (type == HwKLexer.NUMBER) {
             visitor.visitVarInsn(Opcodes.ILOAD, id)
             visitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(I)V", false)

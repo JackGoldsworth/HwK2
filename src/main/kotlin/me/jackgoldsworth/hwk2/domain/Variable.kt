@@ -1,3 +1,3 @@
 package me.jackgoldsworth.hwk2.domain
 
-data class Variable(val index: Int, val type: Int, val textVal: String)
+data class Variable(val index: Int, val type: Int, val textVal: String, val otherVar: Variable?)

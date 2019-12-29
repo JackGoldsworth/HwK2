@@ -14,14 +14,15 @@ class HwKTreeWalkListener : HwKBaseListener() {
     private val variables = mutableMapOf<String, Variable>()
 
     override fun exitVariable(ctx: HwKParser.VariableContext) {
-        val value = ctx.value()
-        val textValue = ctx.ID().text
+        val expression = ctx.expression()
+        val varName = ctx.ID().text
         val variable = Variable(
             variables.size,
-            ctx.value().getStart().type,
-            value.text
+            ctx.expression().getStart().type,
+            expression.text,
+            if (variables.containsKey(expression?.ID()?.text)) variables[expression.ID().text] else null
         )
-        variables[textValue] = variable
+        variables[varName] = variable
         instructions.add(VariableInst(variable))
     }
 
