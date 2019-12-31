@@ -16,7 +16,7 @@ statement: variable | print | imports;
 
 variable: 'var' ID '=' expression;
 
-expression: ID # VAR
+expression: varReference # VAR
           | value # VALUE
           | expression '^' expression # EXP
           | expression '*' expression # MULT
@@ -26,6 +26,7 @@ expression: ID # VAR
 
 
 value: (NUMBER | STRING)+;
+varReference: ID;
 
 /*
 * Lexer

@@ -3,7 +3,9 @@ package me.jackgoldsworth.hwk2.domain.expression
 import me.jackgoldsworth.hwk2.bytecode.instructions.ExpressionGenerator
 import me.jackgoldsworth.hwk2.domain.Type
 
-abstract class Expression(type: Type) {
+class Value(val type: Type, val value: String) : Expression(type) {
 
-    abstract fun accept(generator: ExpressionGenerator)
+    override fun accept(generator: ExpressionGenerator) {
+        generator.generate(this)
+    }
 }

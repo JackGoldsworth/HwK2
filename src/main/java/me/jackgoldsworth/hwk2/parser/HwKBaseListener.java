@@ -269,6 +269,24 @@ public class HwKBaseListener implements HwKListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
+    public void enterVarReference(HwKParser.VarReferenceContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitVarReference(HwKParser.VarReferenceContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
     public void enterEveryRule(ParserRuleContext ctx) {
     }
 

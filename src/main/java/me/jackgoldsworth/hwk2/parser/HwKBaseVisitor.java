@@ -1,6 +1,5 @@
 // Generated from HwK.g4 by ANTLR 4.7.2
 package me.jackgoldsworth.hwk2.parser;
-
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -163,6 +162,17 @@ public class HwKBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Hw
      */
     @Override
     public T visitValue(HwKParser.ValueContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation returns the result of calling
+     * {@link #visitChildren} on {@code ctx}.</p>
+     */
+    @Override
+    public T visitVarReference(HwKParser.VarReferenceContext ctx) {
         return visitChildren(ctx);
     }
 }

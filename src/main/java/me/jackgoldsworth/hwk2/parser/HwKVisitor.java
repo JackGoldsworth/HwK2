@@ -1,6 +1,5 @@
 // Generated from HwK.g4 by ANTLR 4.7.2
 package me.jackgoldsworth.hwk2.parser;
-
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -129,4 +128,12 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
      * @return the visitor result
      */
     T visitValue(HwKParser.ValueContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#varReference}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitVarReference(HwKParser.VarReferenceContext ctx);
 }
