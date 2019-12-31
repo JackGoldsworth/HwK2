@@ -1,5 +1,6 @@
 package me.jackgoldsworth.hwk2.bytecode.instructions
 
+import me.jackgoldsworth.hwk2.domain.Type
 import me.jackgoldsworth.hwk2.domain.Variable
 import me.jackgoldsworth.hwk2.parser.HwKLexer
 import org.objectweb.asm.MethodVisitor
@@ -16,14 +17,20 @@ class PrintInst(private val variable: Variable) : Instruction {
         }
         if (type == HwKLexer.NUMBER) {
             visitor.visitVarInsn(Opcodes.ILOAD, id)
-            visitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(I)V", false)
+            visitor.visitMethodInsn(
+                Opcodes.INVOKEVIRTUAL,
+                "java/io/PrintStream",
+                "println",
+                "(${Type.INT.descriptor})V",
+                false
+            )
         } else if (type == HwKLexer.STRING) {
             visitor.visitVarInsn(Opcodes.ALOAD, id)
             visitor.visitMethodInsn(
                 Opcodes.INVOKEVIRTUAL,
                 "java/io/PrintStream",
                 "println",
-                "(Ljava/lang/String;)V",
+                "(${Type.STRING.descriptor})V",
                 false
             )
         }

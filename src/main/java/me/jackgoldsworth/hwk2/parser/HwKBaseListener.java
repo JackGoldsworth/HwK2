@@ -125,7 +125,7 @@ public class HwKBaseListener implements HwKListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void enterExpression(HwKParser.ExpressionContext ctx) {
+    public void enterDIV(HwKParser.DIVContext ctx) {
     }
 
     /**
@@ -134,7 +134,115 @@ public class HwKBaseListener implements HwKListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void exitExpression(HwKParser.ExpressionContext ctx) {
+    public void exitDIV(HwKParser.DIVContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterSUB(HwKParser.SUBContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitSUB(HwKParser.SUBContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterADD(HwKParser.ADDContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitADD(HwKParser.ADDContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterMULT(HwKParser.MULTContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitMULT(HwKParser.MULTContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterVAR(HwKParser.VARContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitVAR(HwKParser.VARContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterVALUE(HwKParser.VALUEContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitVALUE(HwKParser.VALUEContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterEXP(HwKParser.EXPContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitEXP(HwKParser.EXPContext ctx) {
     }
 
     /**

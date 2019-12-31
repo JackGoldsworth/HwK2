@@ -92,18 +92,116 @@ public interface HwKListener extends ParseTreeListener {
     void exitVariable(HwKParser.VariableContext ctx);
 
     /**
-     * Enter a parse tree produced by {@link HwKParser#expression}.
+     * Enter a parse tree produced by the {@code DIV}
+     * labeled alternative in {@link HwKParser#expression}.
      *
      * @param ctx the parse tree
      */
-    void enterExpression(HwKParser.ExpressionContext ctx);
+    void enterDIV(HwKParser.DIVContext ctx);
 
     /**
-     * Exit a parse tree produced by {@link HwKParser#expression}.
+     * Exit a parse tree produced by the {@code DIV}
+     * labeled alternative in {@link HwKParser#expression}.
      *
      * @param ctx the parse tree
      */
-    void exitExpression(HwKParser.ExpressionContext ctx);
+    void exitDIV(HwKParser.DIVContext ctx);
+
+    /**
+     * Enter a parse tree produced by the {@code SUB}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterSUB(HwKParser.SUBContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code SUB}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitSUB(HwKParser.SUBContext ctx);
+
+    /**
+     * Enter a parse tree produced by the {@code ADD}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterADD(HwKParser.ADDContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code ADD}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitADD(HwKParser.ADDContext ctx);
+
+    /**
+     * Enter a parse tree produced by the {@code MULT}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterMULT(HwKParser.MULTContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code MULT}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitMULT(HwKParser.MULTContext ctx);
+
+    /**
+     * Enter a parse tree produced by the {@code VAR}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterVAR(HwKParser.VARContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code VAR}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitVAR(HwKParser.VARContext ctx);
+
+    /**
+     * Enter a parse tree produced by the {@code VALUE}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterVALUE(HwKParser.VALUEContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code VALUE}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitVALUE(HwKParser.VALUEContext ctx);
+
+    /**
+     * Enter a parse tree produced by the {@code EXP}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterEXP(HwKParser.EXPContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code EXP}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitEXP(HwKParser.EXPContext ctx);
 
     /**
      * Enter a parse tree produced by {@link HwKParser#value}.
