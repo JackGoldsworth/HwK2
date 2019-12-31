@@ -1,4 +1,5 @@
 package me.jackgoldsworth.hwk2.domain
 
-class CompilationUnit(val fileName: String) {
-}
+import me.jackgoldsworth.hwk2.domain.function.Function
+
+data class CompilationUnit(val fileName: String, val functions: List<Function>, val statements: List<Statement>)

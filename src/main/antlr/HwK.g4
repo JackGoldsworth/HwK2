@@ -4,7 +4,7 @@ grammar HwK;
 * Parsing
 */
 
-compilationUnit: statement* EOF;
+compilationUnit: (statement | function)* EOF;
 
 imports: '@imp' ID ('.' ID)*;
 
@@ -24,9 +24,11 @@ expression: varReference # VAR
           | expression '-' expression # SUB
           | expression '+' expression # ADD;
 
+function: 'fn' ID '(' parameter* ')' '->' type* '{' (variable | print | expression)* '}';
 
 value: (NUMBER | STRING)+;
 varReference: ID;
+parameter: type ':' ID ','*;
 
 /*
 * Lexer

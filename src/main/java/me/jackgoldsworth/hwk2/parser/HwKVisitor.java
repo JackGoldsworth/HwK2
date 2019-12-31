@@ -122,6 +122,14 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
     T visitEXP(HwKParser.EXPContext ctx);
 
     /**
+     * Visit a parse tree produced by {@link HwKParser#function}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitFunction(HwKParser.FunctionContext ctx);
+
+    /**
      * Visit a parse tree produced by {@link HwKParser#value}.
      *
      * @param ctx the parse tree
@@ -136,4 +144,12 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
      * @return the visitor result
      */
     T visitVarReference(HwKParser.VarReferenceContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#parameter}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitParameter(HwKParser.ParameterContext ctx);
 }

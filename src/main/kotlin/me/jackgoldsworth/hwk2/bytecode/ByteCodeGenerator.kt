@@ -15,7 +15,7 @@ class ByteCodeGenerator {
             null,
             "java/lang/Object",
             null
-        );
+        )
         val methodVisitor = classWriter.visitMethod(
             Opcodes.ACC_PUBLIC + Opcodes.ACC_STATIC,
             "main",

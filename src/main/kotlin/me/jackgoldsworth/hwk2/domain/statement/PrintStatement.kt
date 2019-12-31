@@ -1,6 +1,6 @@
 package me.jackgoldsworth.hwk2.domain.statement
 
-import me.jackgoldsworth.hwk2.bytecode.instructions.StatementGenerator
+import me.jackgoldsworth.hwk2.bytecode.StatementGenerator
 import me.jackgoldsworth.hwk2.domain.Statement
 import me.jackgoldsworth.hwk2.domain.expression.Expression
 

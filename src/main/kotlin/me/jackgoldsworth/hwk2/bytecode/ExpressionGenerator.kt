@@ -1,4 +1,4 @@
-package me.jackgoldsworth.hwk2.bytecode.instructions
+package me.jackgoldsworth.hwk2.bytecode
 
 import jdk.internal.org.objectweb.asm.MethodVisitor
 import me.jackgoldsworth.hwk2.domain.Type

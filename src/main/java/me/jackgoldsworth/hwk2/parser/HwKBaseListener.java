@@ -251,6 +251,24 @@ public class HwKBaseListener implements HwKListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
+    public void enterFunction(HwKParser.FunctionContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitFunction(HwKParser.FunctionContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
     public void enterValue(HwKParser.ValueContext ctx) {
     }
 
@@ -279,6 +297,24 @@ public class HwKBaseListener implements HwKListener {
      */
     @Override
     public void exitVarReference(HwKParser.VarReferenceContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterParameter(HwKParser.ParameterContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitParameter(HwKParser.ParameterContext ctx) {
     }
 
     /**
