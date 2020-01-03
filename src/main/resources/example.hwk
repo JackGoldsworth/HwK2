@@ -1,2 +1,10 @@
-var test = "test"
+var test = 6 + 4
+var test1 = 6 - 4
+var test2 = 6 * 4
+var test3 = 6 / 4
+var test4 = 2^3
 print(test)
+print(test1)
+print(test2)
+print(test3)
+print(test4)
