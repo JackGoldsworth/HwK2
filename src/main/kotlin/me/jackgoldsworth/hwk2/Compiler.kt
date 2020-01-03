@@ -20,7 +20,8 @@ class Compiler {
         val lexer = HwKLexer(stream)
         val tokenStream = CommonTokenStream(lexer)
         val parser = HwKParser(tokenStream)
-        val visitor = CompilationVisitor()
+        val splitStr = path.split('\\')
+        val visitor = CompilationVisitor(splitStr[splitStr.size - 1])
         return parser.compilationUnit().accept(visitor)
     }
 

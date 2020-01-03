@@ -125,6 +125,24 @@ public class HwKBaseListener implements HwKListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
+    public void enterVAL(HwKParser.VALContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitVAL(HwKParser.VALContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
     public void enterDIV(HwKParser.DIVContext ctx) {
     }
 
@@ -207,24 +225,6 @@ public class HwKBaseListener implements HwKListener {
      */
     @Override
     public void exitVAR(HwKParser.VARContext ctx) {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterVALUE(HwKParser.VALUEContext ctx) {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitVALUE(HwKParser.VALUEContext ctx) {
     }
 
     /**

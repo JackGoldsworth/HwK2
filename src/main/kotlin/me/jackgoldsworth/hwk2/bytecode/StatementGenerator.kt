@@ -1,5 +1,7 @@
 package me.jackgoldsworth.hwk2.bytecode
 
+import me.jackgoldsworth.hwk2.domain.Scope
+import me.jackgoldsworth.hwk2.domain.Type
 import me.jackgoldsworth.hwk2.domain.statement.PrintStatement
 import me.jackgoldsworth.hwk2.domain.statement.VariableStatement
 import org.objectweb.asm.MethodVisitor
@@ -7,7 +9,8 @@ import org.objectweb.asm.Opcodes
 
 class StatementGenerator(
     private val methodVisitor: MethodVisitor,
-    private val expressionGenerator: ExpressionGenerator
+    private val expressionGenerator: ExpressionGenerator,
+    private val scope: Scope
 ) {
 
     fun generate(print: PrintStatement) {
@@ -25,32 +28,14 @@ class StatementGenerator(
     }
 
     fun generate(variable: VariableStatement) {
-
+        val type = variable.expression.type
+        val index = scope.getIndexOfLocalVariable(variable.varName)
+            ?: throw IndexOutOfBoundsException("Variable ${variable.varName} index was not found!")
+        variable.expression.accept(expressionGenerator) // Push the expression to the stack
+        if (type == Type.STRING) { // Store the expression
+            methodVisitor.visitVarInsn(Opcodes.ASTORE, index)
+        } else {
+            methodVisitor.visitVarInsn(Opcodes.ISTORE, index)
+        }
     }
 }
-
-//override fun apply(visitor: org.objectweb.asm.MethodVisitor) {
-//    when (variable.type) {
-//        HwKLexer.NUMBER -> {
-//            val value = Integer.valueOf(variable.textVal)
-//            visitor.visitIntInsn(Opcodes.BIPUSH, value)
-//            visitor.visitVarInsn(Opcodes.ISTORE, variable.index)
-//        }
-//        HwKLexer.STRING -> {
-//            visitor.visitLdcInsn(variable.textVal)
-//            visitor.visitVarInsn(Opcodes.ASTORE, variable.index)
-//        }
-//        HwKLexer.ID -> {
-//            if (variable.otherVar!!.type == HwKLexer.STRING) {
-//                visitor.visitVarInsn(Opcodes.ALOAD, variable.otherVar.index)
-//                visitor.visitVarInsn(Opcodes.ASTORE, variable.index)
-//            } else if (variable.otherVar.type == HwKLexer.NUMBER) {
-//                visitor.visitVarInsn(Opcodes.ILOAD, variable.otherVar.index)
-////                    visitor.visitIntInsn(Opcodes.BIPUSH, 5) Temporary code to stop optimizations.
-////                    visitor.visitInsn(Opcodes.IMUL)
-//                visitor.visitVarInsn(Opcodes.ISTORE, variable.index)
-//            }
-//        }
-//    }
-//}
-//}

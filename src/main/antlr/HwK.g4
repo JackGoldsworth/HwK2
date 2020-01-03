@@ -17,7 +17,7 @@ statement: variable | print | imports;
 variable: 'var' ID '=' expression;
 
 expression: varReference # VAR
-          | value # VALUE
+          | value # VAL
           | expression '^' expression # EXP
           | expression '*' expression # MULT
           | expression '/' expression # DIV

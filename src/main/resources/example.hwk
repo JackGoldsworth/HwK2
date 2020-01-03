@@ -1,3 +1,2 @@
-var test = 5
-var hello = test
-print(hello)
+var test = "test"
+print(test)

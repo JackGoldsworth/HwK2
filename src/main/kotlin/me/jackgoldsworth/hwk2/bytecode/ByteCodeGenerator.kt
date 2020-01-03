@@ -23,9 +23,14 @@ class ByteCodeGenerator {
             null,
             null
         )
-        val statementGenerator = StatementGenerator(methodVisitor, ExpressionGenerator(methodVisitor))
+        val statementGenerator = StatementGenerator(
+            methodVisitor,
+            ExpressionGenerator(methodVisitor, compilationUnit.scope),
+            compilationUnit.scope
+        )
         compilationUnit.statements.forEach { it.accept(statementGenerator) }
         methodVisitor.visitInsn(Opcodes.RETURN)
+        methodVisitor.visitMaxs(100, compilationUnit.scope.localVariables.size)
         methodVisitor.visitEnd()
         classWriter.visitEnd()
         return classWriter.toByteArray()
