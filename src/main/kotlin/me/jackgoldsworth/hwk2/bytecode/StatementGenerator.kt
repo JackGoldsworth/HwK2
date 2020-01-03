@@ -1,8 +1,8 @@
 package me.jackgoldsworth.hwk2.bytecode
 
-import jdk.internal.org.objectweb.asm.MethodVisitor
 import me.jackgoldsworth.hwk2.domain.statement.PrintStatement
 import me.jackgoldsworth.hwk2.domain.statement.VariableStatement
+import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
 class StatementGenerator(

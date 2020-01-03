@@ -8,7 +8,9 @@ class CompilationVisitor : HwKBaseVisitor<CompilationUnit>() {
 
     override fun visitCompilationUnit(ctx: HwKParser.CompilationUnitContext): CompilationUnit {
         val functionVisitor = FunctionVisitor()
-        val functionsCtx = ctx.function()
-        return super.visitCompilationUnit(ctx)
+        val statementVisitor = StatementVisitor()
+        val statements = ctx.statement().map { it.accept(statementVisitor) }.toList()
+        val functions = ctx.function().map { it.accept(functionVisitor) }.toList()
+        return CompilationUnit("temp", functions, statements)
     }
 }

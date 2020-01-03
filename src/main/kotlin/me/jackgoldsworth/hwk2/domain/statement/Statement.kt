@@ -1,4 +1,4 @@
-package me.jackgoldsworth.hwk2.domain
+package me.jackgoldsworth.hwk2.domain.statement
 
 import me.jackgoldsworth.hwk2.bytecode.StatementGenerator
 

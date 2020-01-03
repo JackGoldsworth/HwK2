@@ -24,7 +24,7 @@ expression: varReference # VAR
           | expression '-' expression # SUB
           | expression '+' expression # ADD;
 
-function: 'fn' ID '(' parameter* ')' '->' type* '{' (variable | print | expression)* '}';
+function: 'fn' ID '(' parameter* ')' '->' type* '{' (variable | print)* '}';
 
 value: (NUMBER | STRING)+;
 varReference: ID;

@@ -1,8 +1,8 @@
 package me.jackgoldsworth.hwk2.domain.function
 
 import me.jackgoldsworth.hwk2.domain.Scope
-import me.jackgoldsworth.hwk2.domain.Statement
 import me.jackgoldsworth.hwk2.domain.Type
+import me.jackgoldsworth.hwk2.domain.statement.Statement
 import java.util.*
 
 data class Function(

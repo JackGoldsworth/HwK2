@@ -1,4 +1,7 @@
 package me.jackgoldsworth.hwk2.visitor
 
-class FunctionVisitor {
+import me.jackgoldsworth.hwk2.domain.function.Function
+import me.jackgoldsworth.hwk2.parser.HwKBaseVisitor
+
+class FunctionVisitor : HwKBaseVisitor<Function>() {
 }

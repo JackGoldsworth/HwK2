@@ -893,11 +893,9 @@ public class HwKParser extends Parser {
 		public TypeContext type(int i) {
 			return getRuleContext(TypeContext.class, i);
 		}
-
 		public List<VariableContext> variable() {
 			return getRuleContexts(VariableContext.class);
 		}
-
 		public VariableContext variable(int i) {
 			return getRuleContext(VariableContext.class, i);
 		}
@@ -908,14 +906,6 @@ public class HwKParser extends Parser {
 
 		public PrintContext print(int i) {
 			return getRuleContext(PrintContext.class, i);
-		}
-
-		public List<ExpressionContext> expression() {
-			return getRuleContexts(ExpressionContext.class);
-		}
-
-		public ExpressionContext expression(int i) {
-			return getRuleContext(ExpressionContext.class, i);
 		}
 
 		public FunctionContext(ParserRuleContext parent, int invokingState) {
@@ -991,12 +981,12 @@ public class HwKParser extends Parser {
 				}
 				setState(98);
 				match(T__14);
-				setState(104);
+				setState(103);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__4) | (1L << NUMBER) | (1L << ID) | (1L << STRING))) != 0)) {
+				while (_la == T__2 || _la == T__4) {
 					{
-						setState(102);
+						setState(101);
 						_errHandler.sync(this);
 						switch (_input.LA(1)) {
 							case T__4: {
@@ -1009,22 +999,15 @@ public class HwKParser extends Parser {
 								print();
 							}
 							break;
-							case NUMBER:
-							case ID:
-							case STRING: {
-								setState(101);
-								expression(0);
-							}
-							break;
 							default:
 								throw new NoViableAltException(this);
 						}
 					}
-					setState(106);
+					setState(105);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(107);
+				setState(106);
 				match(T__15);
 			}
 		} catch (RecognitionException re) {
@@ -1088,14 +1071,14 @@ public class HwKParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-				setState(110);
+				setState(109);
 				_errHandler.sync(this);
 				_alt = 1;
 				do {
 					switch (_alt) {
 						case 1: {
 							{
-								setState(109);
+								setState(108);
 								_la = _input.LA(1);
 								if (!(_la == NUMBER || _la == STRING)) {
 									_errHandler.recoverInline(this);
@@ -1110,7 +1093,7 @@ public class HwKParser extends Parser {
 						default:
 							throw new NoViableAltException(this);
 					}
-					setState(112);
+					setState(111);
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input, 11, _ctx);
 				} while (_alt != 2 && _alt != org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER);
@@ -1162,7 +1145,7 @@ public class HwKParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-				setState(114);
+				setState(113);
 				match(ID);
 			}
 		} catch (RecognitionException re) {
@@ -1217,23 +1200,23 @@ public class HwKParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-				setState(116);
+				setState(115);
 				type();
-				setState(117);
+				setState(116);
 				match(T__16);
-				setState(118);
+				setState(117);
 				match(ID);
-				setState(122);
+				setState(121);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la == T__17) {
 					{
 						{
-							setState(119);
+							setState(118);
 							match(T__17);
 						}
 					}
-					setState(124);
+					setState(123);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -1272,38 +1255,37 @@ public class HwKParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-			"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\30\u0080\4\2\t\2" +
-					"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13" +
-					"\t\13\4\f\t\f\3\2\3\2\7\2\33\n\2\f\2\16\2\36\13\2\3\2\3\2\3\3\3\3\3\3" +
-					"\3\3\7\3&\n\3\f\3\16\3)\13\3\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\5\6\64" +
+			"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\30\177\4\2\t\2\4" +
+					"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t" +
+					"\13\4\f\t\f\3\2\3\2\7\2\33\n\2\f\2\16\2\36\13\2\3\2\3\2\3\3\3\3\3\3\3" +
+					"\3\7\3&\n\3\f\3\16\3)\13\3\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\5\6\64" +
 					"\n\6\3\7\3\7\3\7\3\7\3\7\3\b\3\b\3\b\5\b>\n\b\3\b\3\b\3\b\3\b\3\b\3\b" +
 					"\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\7\bO\n\b\f\b\16\bR\13\b\3\t\3\t\3" +
 					"\t\3\t\7\tX\n\t\f\t\16\t[\13\t\3\t\3\t\3\t\7\t`\n\t\f\t\16\tc\13\t\3\t" +
-					"\3\t\3\t\3\t\7\ti\n\t\f\t\16\tl\13\t\3\t\3\t\3\n\6\nq\n\n\r\n\16\nr\3" +
-					"\13\3\13\3\f\3\f\3\f\3\f\7\f{\n\f\f\f\16\f~\13\f\3\f\2\3\16\r\2\4\6\b" +
-					"\n\f\16\20\22\24\26\2\3\4\2\26\26\30\30\2\u0086\2\34\3\2\2\2\4!\3\2\2" +
-					"\2\6*\3\2\2\2\b,\3\2\2\2\n\63\3\2\2\2\f\65\3\2\2\2\16=\3\2\2\2\20S\3\2" +
-					"\2\2\22p\3\2\2\2\24t\3\2\2\2\26v\3\2\2\2\30\33\5\n\6\2\31\33\5\20\t\2" +
-					"\32\30\3\2\2\2\32\31\3\2\2\2\33\36\3\2\2\2\34\32\3\2\2\2\34\35\3\2\2\2" +
-					"\35\37\3\2\2\2\36\34\3\2\2\2\37 \7\2\2\3 \3\3\2\2\2!\"\7\3\2\2\"\'\7\27" +
-					"\2\2#$\7\4\2\2$&\7\27\2\2%#\3\2\2\2&)\3\2\2\2\'%\3\2\2\2\'(\3\2\2\2(\5" +
-					"\3\2\2\2)\'\3\2\2\2*+\7\27\2\2+\7\3\2\2\2,-\7\5\2\2-.\5\16\b\2./\7\6\2" +
-					"\2/\t\3\2\2\2\60\64\5\f\7\2\61\64\5\b\5\2\62\64\5\4\3\2\63\60\3\2\2\2" +
-					"\63\61\3\2\2\2\63\62\3\2\2\2\64\13\3\2\2\2\65\66\7\7\2\2\66\67\7\27\2" +
-					"\2\678\7\b\2\289\5\16\b\29\r\3\2\2\2:;\b\b\1\2;>\5\24\13\2<>\5\22\n\2" +
-					"=:\3\2\2\2=<\3\2\2\2>P\3\2\2\2?@\f\7\2\2@A\7\t\2\2AO\5\16\b\bBC\f\6\2" +
-					"\2CD\7\n\2\2DO\5\16\b\7EF\f\5\2\2FG\7\13\2\2GO\5\16\b\6HI\f\4\2\2IJ\7" +
-					"\f\2\2JO\5\16\b\5KL\f\3\2\2LM\7\r\2\2MO\5\16\b\4N?\3\2\2\2NB\3\2\2\2N" +
-					"E\3\2\2\2NH\3\2\2\2NK\3\2\2\2OR\3\2\2\2PN\3\2\2\2PQ\3\2\2\2Q\17\3\2\2" +
-					"\2RP\3\2\2\2ST\7\16\2\2TU\7\27\2\2UY\7\17\2\2VX\5\26\f\2WV\3\2\2\2X[\3" +
-					"\2\2\2YW\3\2\2\2YZ\3\2\2\2Z\\\3\2\2\2[Y\3\2\2\2\\]\7\6\2\2]a\7\20\2\2" +
-					"^`\5\6\4\2_^\3\2\2\2`c\3\2\2\2a_\3\2\2\2ab\3\2\2\2bd\3\2\2\2ca\3\2\2\2" +
-					"dj\7\21\2\2ei\5\f\7\2fi\5\b\5\2gi\5\16\b\2he\3\2\2\2hf\3\2\2\2hg\3\2\2" +
-					"\2il\3\2\2\2jh\3\2\2\2jk\3\2\2\2km\3\2\2\2lj\3\2\2\2mn\7\22\2\2n\21\3" +
-					"\2\2\2oq\t\2\2\2po\3\2\2\2qr\3\2\2\2rp\3\2\2\2rs\3\2\2\2s\23\3\2\2\2t" +
-					"u\7\27\2\2u\25\3\2\2\2vw\5\6\4\2wx\7\23\2\2x|\7\27\2\2y{\7\24\2\2zy\3" +
-					"\2\2\2{~\3\2\2\2|z\3\2\2\2|}\3\2\2\2}\27\3\2\2\2~|\3\2\2\2\17\32\34\'" +
-					"\63=NPYahjr|";
+					"\3\t\3\t\7\th\n\t\f\t\16\tk\13\t\3\t\3\t\3\n\6\np\n\n\r\n\16\nq\3\13\3" +
+					"\13\3\f\3\f\3\f\3\f\7\fz\n\f\f\f\16\f}\13\f\3\f\2\3\16\r\2\4\6\b\n\f\16" +
+					"\20\22\24\26\2\3\4\2\26\26\30\30\2\u0084\2\34\3\2\2\2\4!\3\2\2\2\6*\3" +
+					"\2\2\2\b,\3\2\2\2\n\63\3\2\2\2\f\65\3\2\2\2\16=\3\2\2\2\20S\3\2\2\2\22" +
+					"o\3\2\2\2\24s\3\2\2\2\26u\3\2\2\2\30\33\5\n\6\2\31\33\5\20\t\2\32\30\3" +
+					"\2\2\2\32\31\3\2\2\2\33\36\3\2\2\2\34\32\3\2\2\2\34\35\3\2\2\2\35\37\3" +
+					"\2\2\2\36\34\3\2\2\2\37 \7\2\2\3 \3\3\2\2\2!\"\7\3\2\2\"\'\7\27\2\2#$" +
+					"\7\4\2\2$&\7\27\2\2%#\3\2\2\2&)\3\2\2\2\'%\3\2\2\2\'(\3\2\2\2(\5\3\2\2" +
+					"\2)\'\3\2\2\2*+\7\27\2\2+\7\3\2\2\2,-\7\5\2\2-.\5\16\b\2./\7\6\2\2/\t" +
+					"\3\2\2\2\60\64\5\f\7\2\61\64\5\b\5\2\62\64\5\4\3\2\63\60\3\2\2\2\63\61" +
+					"\3\2\2\2\63\62\3\2\2\2\64\13\3\2\2\2\65\66\7\7\2\2\66\67\7\27\2\2\678" +
+					"\7\b\2\289\5\16\b\29\r\3\2\2\2:;\b\b\1\2;>\5\24\13\2<>\5\22\n\2=:\3\2" +
+					"\2\2=<\3\2\2\2>P\3\2\2\2?@\f\7\2\2@A\7\t\2\2AO\5\16\b\bBC\f\6\2\2CD\7" +
+					"\n\2\2DO\5\16\b\7EF\f\5\2\2FG\7\13\2\2GO\5\16\b\6HI\f\4\2\2IJ\7\f\2\2" +
+					"JO\5\16\b\5KL\f\3\2\2LM\7\r\2\2MO\5\16\b\4N?\3\2\2\2NB\3\2\2\2NE\3\2\2" +
+					"\2NH\3\2\2\2NK\3\2\2\2OR\3\2\2\2PN\3\2\2\2PQ\3\2\2\2Q\17\3\2\2\2RP\3\2" +
+					"\2\2ST\7\16\2\2TU\7\27\2\2UY\7\17\2\2VX\5\26\f\2WV\3\2\2\2X[\3\2\2\2Y" +
+					"W\3\2\2\2YZ\3\2\2\2Z\\\3\2\2\2[Y\3\2\2\2\\]\7\6\2\2]a\7\20\2\2^`\5\6\4" +
+					"\2_^\3\2\2\2`c\3\2\2\2a_\3\2\2\2ab\3\2\2\2bd\3\2\2\2ca\3\2\2\2di\7\21" +
+					"\2\2eh\5\f\7\2fh\5\b\5\2ge\3\2\2\2gf\3\2\2\2hk\3\2\2\2ig\3\2\2\2ij\3\2" +
+					"\2\2jl\3\2\2\2ki\3\2\2\2lm\7\22\2\2m\21\3\2\2\2np\t\2\2\2on\3\2\2\2pq" +
+					"\3\2\2\2qo\3\2\2\2qr\3\2\2\2r\23\3\2\2\2st\7\27\2\2t\25\3\2\2\2uv\5\6" +
+					"\4\2vw\7\23\2\2w{\7\27\2\2xz\7\24\2\2yx\3\2\2\2z}\3\2\2\2{y\3\2\2\2{|" +
+					"\3\2\2\2|\27\3\2\2\2}{\3\2\2\2\17\32\34\'\63=NPYagiq{";
 	public static final ATN _ATN =
 			new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
