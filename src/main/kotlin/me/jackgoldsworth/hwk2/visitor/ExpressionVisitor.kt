@@ -22,6 +22,7 @@ class ExpressionVisitor(private val scope: Scope) : HwKBaseVisitor<Expression>()
         return Value(Type.getTypeFromValue(ctx.text), ctx.text)
     }
 
+    // TODO: Actually generate stuffs.
     override fun visitADD(ctx: HwKParser.ADDContext): Expression {
         val firstVal = ctx.expression(0).text
         val secondVal = ctx.expression(1).text

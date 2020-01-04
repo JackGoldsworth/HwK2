@@ -46,15 +46,18 @@ public class HwKParser extends Parser {
                 "'/'", "'-'", "'+'", "'fn'", "'('", "'->'", "'{'", "'}'", "':'", "','"
         };
     }
-	private static final String[] _LITERAL_NAMES = makeLiteralNames();
-	private static String[] makeSymbolicNames() {
+
+    private static final String[] _LITERAL_NAMES = makeLiteralNames();
+
+    private static String[] makeSymbolicNames() {
         return new String[]{
                 null, null, null, null, null, null, null, null, null, null, null, null,
                 null, null, null, null, null, null, null, "WS", "NUMBER", "ID", "STRING"
         };
     }
-	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
-	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
+
+    private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
+    public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
 	/**
 	 * @deprecated Use {@link #VOCABULARY} instead.
@@ -77,15 +80,15 @@ public class HwKParser extends Parser {
 
 	@Override
 	@Deprecated
-	public String[] getTokenNames() {
-		return tokenNames;
-	}
+    public String[] getTokenNames() {
+        return tokenNames;
+    }
 
-	@Override
+    @Override
 
-	public Vocabulary getVocabulary() {
-		return VOCABULARY;
-	}
+    public Vocabulary getVocabulary() {
+        return VOCABULARY;
+    }
 
     @Override
     public String getGrammarFileName() {
@@ -107,7 +110,7 @@ public class HwKParser extends Parser {
         return _ATN;
     }
 
-	public HwKParser(TokenStream input) {
+    public HwKParser(TokenStream input) {
         super(input);
         _interp = new ParserATNSimulator(this, _ATN, _decisionToDFA, _sharedContextCache);
     }
@@ -157,14 +160,14 @@ public class HwKParser extends Parser {
             if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitCompilationUnit(this);
             else return visitor.visitChildren(this);
         }
-	}
+    }
 
-	public final CompilationUnitContext compilationUnit() throws RecognitionException {
-		CompilationUnitContext _localctx = new CompilationUnitContext(_ctx, getState());
-		enterRule(_localctx, 0, RULE_compilationUnit);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
+    public final CompilationUnitContext compilationUnit() throws RecognitionException {
+        CompilationUnitContext _localctx = new CompilationUnitContext(_ctx, getState());
+        enterRule(_localctx, 0, RULE_compilationUnit);
+        int _la;
+        try {
+            enterOuterAlt(_localctx, 1);
             {
                 setState(26);
                 _errHandler.sync(this);
@@ -204,8 +207,8 @@ public class HwKParser extends Parser {
         } finally {
             exitRule();
         }
-		return _localctx;
-	}
+        return _localctx;
+    }
 
     public static class ImportsContext extends ParserRuleContext {
         public List<TerminalNode> ID() {
@@ -240,14 +243,14 @@ public class HwKParser extends Parser {
             if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitImports(this);
             else return visitor.visitChildren(this);
         }
-	}
+    }
 
-	public final ImportsContext imports() throws RecognitionException {
-		ImportsContext _localctx = new ImportsContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_imports);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
+    public final ImportsContext imports() throws RecognitionException {
+        ImportsContext _localctx = new ImportsContext(_ctx, getState());
+        enterRule(_localctx, 2, RULE_imports);
+        int _la;
+        try {
+            enterOuterAlt(_localctx, 1);
             {
                 setState(31);
                 match(T__0);
@@ -277,8 +280,8 @@ public class HwKParser extends Parser {
         } finally {
             exitRule();
         }
-		return _localctx;
-	}
+        return _localctx;
+    }
 
     public static class TypeContext extends ParserRuleContext {
         public TerminalNode ID() {
@@ -309,11 +312,11 @@ public class HwKParser extends Parser {
             if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitType(this);
             else return visitor.visitChildren(this);
         }
-	}
+    }
 
-	public final TypeContext type() throws RecognitionException {
-		TypeContext _localctx = new TypeContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_type);
+    public final TypeContext type() throws RecognitionException {
+        TypeContext _localctx = new TypeContext(_ctx, getState());
+        enterRule(_localctx, 4, RULE_type);
         try {
             enterOuterAlt(_localctx, 1);
             {
@@ -327,8 +330,8 @@ public class HwKParser extends Parser {
         } finally {
             exitRule();
         }
-		return _localctx;
-	}
+        return _localctx;
+    }
 
     public static class PrintContext extends ParserRuleContext {
         public ExpressionContext expression() {
@@ -359,11 +362,11 @@ public class HwKParser extends Parser {
             if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitPrint(this);
             else return visitor.visitChildren(this);
         }
-	}
+    }
 
-	public final PrintContext print() throws RecognitionException {
-		PrintContext _localctx = new PrintContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_print);
+    public final PrintContext print() throws RecognitionException {
+        PrintContext _localctx = new PrintContext(_ctx, getState());
+        enterRule(_localctx, 6, RULE_print);
         try {
             enterOuterAlt(_localctx, 1);
             {
@@ -381,11 +384,11 @@ public class HwKParser extends Parser {
         } finally {
             exitRule();
         }
-		return _localctx;
-	}
+        return _localctx;
+    }
 
-	public static class StatementContext extends ParserRuleContext {
-		public VariableContext variable() {
+    public static class StatementContext extends ParserRuleContext {
+        public VariableContext variable() {
             return getRuleContext(VariableContext.class, 0);
         }
 
@@ -421,15 +424,15 @@ public class HwKParser extends Parser {
             if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitStatement(this);
             else return visitor.visitChildren(this);
         }
-	}
+    }
 
 	public final StatementContext statement() throws RecognitionException {
 		StatementContext _localctx = new StatementContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_statement);
-		try {
-			setState(49);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
+        try {
+            setState(49);
+            _errHandler.sync(this);
+            switch (_input.LA(1)) {
                 case T__4:
                     enterOuterAlt(_localctx, 1);
                 {
@@ -461,8 +464,8 @@ public class HwKParser extends Parser {
         } finally {
             exitRule();
         }
-		return _localctx;
-	}
+        return _localctx;
+    }
 
     public static class VariableContext extends ParserRuleContext {
         public TerminalNode ID() {
@@ -497,13 +500,13 @@ public class HwKParser extends Parser {
             if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitVariable(this);
             else return visitor.visitChildren(this);
         }
-	}
+    }
 
-	public final VariableContext variable() throws RecognitionException {
-		VariableContext _localctx = new VariableContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_variable);
-		try {
-			enterOuterAlt(_localctx, 1);
+    public final VariableContext variable() throws RecognitionException {
+        VariableContext _localctx = new VariableContext(_ctx, getState());
+        enterRule(_localctx, 10, RULE_variable);
+        try {
+            enterOuterAlt(_localctx, 1);
             {
                 setState(51);
                 match(T__4);
@@ -521,8 +524,8 @@ public class HwKParser extends Parser {
         } finally {
             exitRule();
         }
-		return _localctx;
-	}
+        return _localctx;
+    }
 
     public static class ExpressionContext extends ParserRuleContext {
         public ExpressionContext(ParserRuleContext parent, int invokingState) {
@@ -742,22 +745,22 @@ public class HwKParser extends Parser {
             if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitEXP(this);
             else return visitor.visitChildren(this);
         }
-	}
+    }
 
-	public final ExpressionContext expression() throws RecognitionException {
-		return expression(0);
-	}
+    public final ExpressionContext expression() throws RecognitionException {
+        return expression(0);
+    }
 
-	private ExpressionContext expression(int _p) throws RecognitionException {
-		ParserRuleContext _parentctx = _ctx;
-		int _parentState = getState();
-		ExpressionContext _localctx = new ExpressionContext(_ctx, _parentState);
+    private ExpressionContext expression(int _p) throws RecognitionException {
+        ParserRuleContext _parentctx = _ctx;
+        int _parentState = getState();
+        ExpressionContext _localctx = new ExpressionContext(_ctx, _parentState);
 		ExpressionContext _prevctx = _localctx;
 		int _startState = 12;
 		enterRecursionRule(_localctx, 12, RULE_expression, _p);
 		try {
-			int _alt;
-			enterOuterAlt(_localctx, 1);
+            int _alt;
+            enterOuterAlt(_localctx, 1);
             {
                 setState(59);
                 _errHandler.sync(this);
@@ -870,8 +873,8 @@ public class HwKParser extends Parser {
         } finally {
             unrollRecursionContexts(_parentctx);
         }
-		return _localctx;
-	}
+        return _localctx;
+    }
 
     public static class FunctionContext extends ParserRuleContext {
         public TerminalNode ID() {
@@ -893,10 +896,12 @@ public class HwKParser extends Parser {
         public TypeContext type(int i) {
             return getRuleContext(TypeContext.class, i);
         }
-		public List<VariableContext> variable() {
-			return getRuleContexts(VariableContext.class);
-		}
-		public VariableContext variable(int i) {
+
+        public List<VariableContext> variable() {
+            return getRuleContexts(VariableContext.class);
+        }
+
+        public VariableContext variable(int i) {
             return getRuleContext(VariableContext.class, i);
         }
 
@@ -932,14 +937,14 @@ public class HwKParser extends Parser {
             if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitFunction(this);
             else return visitor.visitChildren(this);
         }
-	}
+    }
 
 	public final FunctionContext function() throws RecognitionException {
 		FunctionContext _localctx = new FunctionContext(_ctx, getState());
 		enterRule(_localctx, 14, RULE_function);
 		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
+        try {
+            enterOuterAlt(_localctx, 1);
             {
                 setState(81);
                 match(T__11);
@@ -1017,8 +1022,8 @@ public class HwKParser extends Parser {
         } finally {
             exitRule();
         }
-		return _localctx;
-	}
+        return _localctx;
+    }
 
     public static class ValueContext extends ParserRuleContext {
         public List<TerminalNode> NUMBER() {
@@ -1061,15 +1066,15 @@ public class HwKParser extends Parser {
             if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitValue(this);
             else return visitor.visitChildren(this);
         }
-	}
+    }
 
-	public final ValueContext value() throws RecognitionException {
-		ValueContext _localctx = new ValueContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_value);
-		int _la;
-		try {
-			int _alt;
-			enterOuterAlt(_localctx, 1);
+    public final ValueContext value() throws RecognitionException {
+        ValueContext _localctx = new ValueContext(_ctx, getState());
+        enterRule(_localctx, 16, RULE_value);
+        int _la;
+        try {
+            int _alt;
+            enterOuterAlt(_localctx, 1);
             {
                 setState(109);
                 _errHandler.sync(this);
@@ -1105,8 +1110,8 @@ public class HwKParser extends Parser {
         } finally {
             exitRule();
         }
-		return _localctx;
-	}
+        return _localctx;
+    }
 
     public static class VarReferenceContext extends ParserRuleContext {
         public TerminalNode ID() {
@@ -1137,11 +1142,11 @@ public class HwKParser extends Parser {
             if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitVarReference(this);
             else return visitor.visitChildren(this);
         }
-	}
+    }
 
-	public final VarReferenceContext varReference() throws RecognitionException {
-		VarReferenceContext _localctx = new VarReferenceContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_varReference);
+    public final VarReferenceContext varReference() throws RecognitionException {
+        VarReferenceContext _localctx = new VarReferenceContext(_ctx, getState());
+        enterRule(_localctx, 18, RULE_varReference);
         try {
             enterOuterAlt(_localctx, 1);
             {
@@ -1155,8 +1160,8 @@ public class HwKParser extends Parser {
         } finally {
             exitRule();
         }
-		return _localctx;
-	}
+        return _localctx;
+    }
 
     public static class ParameterContext extends ParserRuleContext {
         public TypeContext type() {
@@ -1191,14 +1196,14 @@ public class HwKParser extends Parser {
             if (visitor instanceof HwKVisitor) return ((HwKVisitor<? extends T>) visitor).visitParameter(this);
             else return visitor.visitChildren(this);
         }
-	}
+    }
 
-	public final ParameterContext parameter() throws RecognitionException {
-		ParameterContext _localctx = new ParameterContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_parameter);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
+    public final ParameterContext parameter() throws RecognitionException {
+        ParameterContext _localctx = new ParameterContext(_ctx, getState());
+        enterRule(_localctx, 20, RULE_parameter);
+        int _la;
+        try {
+            enterOuterAlt(_localctx, 1);
             {
                 setState(115);
                 type();
@@ -1251,8 +1256,8 @@ public class HwKParser extends Parser {
             case 4:
                 return precpred(_ctx, 1);
         }
-		return true;
-	}
+        return true;
+    }
 
     public static final String _serializedATN =
             "\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\30\177\4\2\t\2\4" +
@@ -1288,10 +1293,11 @@ public class HwKParser extends Parser {
                     "\3\2\2\2|\27\3\2\2\2}{\3\2\2\2\17\32\34\'\63=NPYagiq{";
     public static final ATN _ATN =
             new ATNDeserializer().deserialize(_serializedATN.toCharArray());
-	static {
-		_decisionToDFA = new DFA[_ATN.getNumberOfDecisions()];
-		for (int i = 0; i < _ATN.getNumberOfDecisions(); i++) {
-			_decisionToDFA[i] = new DFA(_ATN.getDecisionState(i), i);
-		}
-	}
+
+    static {
+        _decisionToDFA = new DFA[_ATN.getNumberOfDecisions()];
+        for (int i = 0; i < _ATN.getNumberOfDecisions(); i++) {
+            _decisionToDFA[i] = new DFA(_ATN.getDecisionState(i), i);
+        }
+    }
 }
