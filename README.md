@@ -1,5 +1,5 @@
 # HwK2
-A JVM scripting language that I started using [Jakub Dziworski's tutorial](http://jakubdziworski.github.io/enkel/2016/03/10/enkel_first.html), however, my language is going in a different direction than the original tutorial, so the end results will be quite different. The goal of this language is not to be used, but to learn from.
+A JVM scripting language that I started using [Jakub Dziworski's tutorial](http://jakubdziworski.github.io/enkel/2016/03/10/enkel_first.html). However, my language is going in a different direction than the original tutorial, so the end results will be quite different. The goal of this language is not to be used, but for me to learn from.
 
 ## What can be done:
 - [x] Create variables with values and references.
@@ -11,7 +11,7 @@ A JVM scripting language that I started using [Jakub Dziworski's tutorial](http:
 
 ## Goal:
 This is up for change, but this is currently how I would like the language to look when I decide to stop working on it.
-```
+```kotlin
 var test = 4
 var arrTest = String<5>
 
@@ -30,12 +30,11 @@ for(i in [0, 4]) {
 ```
 
 ## Current Example
-```
+```kotlin
 var test = "Hello, World"
 print(test)
 ```
-
-Which gets compiled to this:
+Which compiles down to:
 ```
 public static void main(java.lang.String[]);
     descriptor: ([Ljava/lang/String;)V
