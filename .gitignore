@@ -8,3 +8,6 @@ out
 # gradle
 build
 .gradle
+
+# generated class files
+example.class
