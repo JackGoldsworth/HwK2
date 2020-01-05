@@ -1,0 +1,23 @@
+language: java
+
+addons:
+  sonarcloud:
+    organization: "jackgoldsworth-github"
+    token:
+      secure: "Y4hjeHjma9jcwFwzCaPcIduNBfF9cwxCAXQysbZpROFNHfPJchaIY7pjJJaw0YqPzkRr1QugLMFmG8QxbKaCmj0LhWU2QTi+Rn6BZoqI/Nhf5hZM/K1hHpuAhfoZiAlax6Cnz47fU1aPsQvFZ1b4IwrrV0fSMd1bCRwOMiUSSEkyPhzbuGdg3A1xJGyIfye1JrpnJzFovvImSlC/PgmBxko1QUd7hg9cqh0ckfzM889By+EFXJQPxKz5riNzmLKESbkxuQx0rdsBW6x6n4sOfkbWPMgXm1GgQN4+MdLow9JpsC5ZBGtIhu4rlRFCE/WdUftrdOoEtY0/lKTq6scZhRbvubgKmnHe5xlBFM3qCeOolyRMsVnn5Wr0oU82/vb5x4eiElnXCz27Xa8KjfxZTGws1nhwHKc3tqbUnifplHj5eOmmiTVq+csySRWzfDFrJbSuRJrgfwyKt5lb72Bm50Suqk4PqOF0hJ0qnleUKFtViU+wbGWZMb1bv8mvbB7vzXUMOBa78Lk851yUcimx6uGcWJOWcwkqfKP2BHK0+l81WAcXqC3a8lYIRReY7o3mKHrSrITTr9I5fTLlZV7zltqgZW1pKTRAH02/H3J8Tm3xquVfywm4fx0eaQoh5qxr1E6lh7aA6nzz1gnsZHrpQq5HLNUS3WccVEVY8Qwbwgo="
+
+jdk:
+  - openjdk8
+
+install:
+  - true
+
+script:
+  - "./gradlew sonarqube"
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+    - '$HOME/.gradle'
+    - '.gradle'
