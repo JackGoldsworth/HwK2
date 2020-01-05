@@ -1,4 +1,4 @@
-[![Build Status](https://api.travis-ci.org/Dumb-Code/ProjectNublar.svg?branch=master)](https://travis-ci.org/Dumb-Code/ProjectNublar)
+[![Build Status](https://api.travis-ci.org/JackGoldsworth/HwK2.svg?branch=master)](https://travis-ci.org/JackGoldsworth/HwK2)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=JackGoldsworth_HwK2&metric=alert_status)](https://sonarcloud.io/dashboard?id=JackGoldsworth_HwK2)
 
 # HwK2
