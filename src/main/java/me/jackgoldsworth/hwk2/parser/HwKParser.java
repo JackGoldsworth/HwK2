@@ -59,27 +59,28 @@ public class HwKParser extends Parser {
     private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
     public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
-	/**
-	 * @deprecated Use {@link #VOCABULARY} instead.
-	 */
-	@Deprecated
-	public static final String[] tokenNames;
-	static {
-		tokenNames = new String[_SYMBOLIC_NAMES.length];
-		for (int i = 0; i < tokenNames.length; i++) {
-			tokenNames[i] = VOCABULARY.getLiteralName(i);
+    /**
+     * @deprecated Use {@link #VOCABULARY} instead.
+     */
+    @Deprecated
+    public static final String[] tokenNames;
+
+    static {
+        tokenNames = new String[_SYMBOLIC_NAMES.length];
+        for (int i = 0; i < tokenNames.length; i++) {
+            tokenNames[i] = VOCABULARY.getLiteralName(i);
 			if (tokenNames[i] == null) {
 				tokenNames[i] = VOCABULARY.getSymbolicName(i);
 			}
 
 			if (tokenNames[i] == null) {
 				tokenNames[i] = "<INVALID>";
-			}
-		}
-	}
+            }
+        }
+    }
 
-	@Override
-	@Deprecated
+    @Override
+    @Deprecated
     public String[] getTokenNames() {
         return tokenNames;
     }
@@ -426,9 +427,9 @@ public class HwKParser extends Parser {
         }
     }
 
-	public final StatementContext statement() throws RecognitionException {
-		StatementContext _localctx = new StatementContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_statement);
+    public final StatementContext statement() throws RecognitionException {
+        StatementContext _localctx = new StatementContext(_ctx, getState());
+        enterRule(_localctx, 8, RULE_statement);
         try {
             setState(49);
             _errHandler.sync(this);
@@ -755,10 +756,10 @@ public class HwKParser extends Parser {
         ParserRuleContext _parentctx = _ctx;
         int _parentState = getState();
         ExpressionContext _localctx = new ExpressionContext(_ctx, _parentState);
-		ExpressionContext _prevctx = _localctx;
-		int _startState = 12;
-		enterRecursionRule(_localctx, 12, RULE_expression, _p);
-		try {
+        ExpressionContext _prevctx = _localctx;
+        int _startState = 12;
+        enterRecursionRule(_localctx, 12, RULE_expression, _p);
+        try {
             int _alt;
             enterOuterAlt(_localctx, 1);
             {
@@ -939,10 +940,10 @@ public class HwKParser extends Parser {
         }
     }
 
-	public final FunctionContext function() throws RecognitionException {
-		FunctionContext _localctx = new FunctionContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_function);
-		int _la;
+    public final FunctionContext function() throws RecognitionException {
+        FunctionContext _localctx = new FunctionContext(_ctx, getState());
+        enterRule(_localctx, 14, RULE_function);
+        int _la;
         try {
             enterOuterAlt(_localctx, 1);
             {
@@ -1233,18 +1234,18 @@ public class HwKParser extends Parser {
         } finally {
             exitRule();
         }
-		return _localctx;
-	}
+        return _localctx;
+    }
 
-	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
-		switch (ruleIndex) {
+    public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
+        switch (ruleIndex) {
             case 6:
                 return expression_sempred((ExpressionContext) _localctx, predIndex);
         }
-		return true;
+        return true;
 	}
 	private boolean expression_sempred(ExpressionContext _localctx, int predIndex) {
-		switch (predIndex) {
+        switch (predIndex) {
             case 0:
                 return precpred(_ctx, 5);
             case 1:
@@ -1299,5 +1300,5 @@ public class HwKParser extends Parser {
         for (int i = 0; i < _ATN.getNumberOfDecisions(); i++) {
             _decisionToDFA[i] = new DFA(_ATN.getDecisionState(i), i);
         }
-    }
+	}
 }
