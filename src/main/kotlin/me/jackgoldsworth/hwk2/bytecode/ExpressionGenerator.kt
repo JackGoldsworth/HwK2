@@ -4,6 +4,7 @@ import me.jackgoldsworth.hwk2.domain.Scope
 import me.jackgoldsworth.hwk2.domain.Type
 import me.jackgoldsworth.hwk2.domain.expression.Value
 import me.jackgoldsworth.hwk2.domain.expression.VariableReference
+import me.jackgoldsworth.hwk2.domain.expression.math.*
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
@@ -33,5 +34,30 @@ class ExpressionGenerator(private val methodVisitor: MethodVisitor, private val 
         } else if (variable.type == Type.STRING) {
             methodVisitor.visitVarInsn(Opcodes.ALOAD, index)
         }
+    }
+
+    fun generate(addition: Addition) {
+        evaluateExpressions(addition)
+        methodVisitor.visitInsn(Opcodes.IADD)
+    }
+
+    fun generate(subtraction: Subtraction) {
+        evaluateExpressions(subtraction)
+        methodVisitor.visitInsn(Opcodes.ISUB)
+    }
+
+    fun generate(multiply: Multiply) {
+        evaluateExpressions(multiply)
+        methodVisitor.visitInsn(Opcodes.IMUL)
+    }
+
+    fun generate(division: Division) {
+        evaluateExpressions(division)
+        methodVisitor.visitInsn(Opcodes.IDIV)
+    }
+
+    private fun evaluateExpressions(expression: ArithmeticExpression) {
+        expression.left.accept(this)
+        expression.right.accept(this)
     }
 }
