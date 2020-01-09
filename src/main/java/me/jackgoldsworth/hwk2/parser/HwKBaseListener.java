@@ -313,25 +313,17 @@ public class HwKBaseListener implements HwKListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override
-	public void exitEveryRule(ParserRuleContext ctx) {
-	}
-
+	@Override public void exitEveryRule(ParserRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override
-	public void visitTerminal(TerminalNode node) {
-	}
-
+	@Override public void visitTerminal(TerminalNode node) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override
-	public void visitErrorNode(ErrorNode node) {
-	}
+	@Override public void visitErrorNode(ErrorNode node) { }
 }

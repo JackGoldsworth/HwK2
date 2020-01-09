@@ -1,6 +1,7 @@
 package me.jackgoldsworth.hwk2.visitor
 
 import me.jackgoldsworth.hwk2.domain.Scope
+import me.jackgoldsworth.hwk2.domain.function.LocalVariable
 import me.jackgoldsworth.hwk2.domain.statement.PrintStatement
 import me.jackgoldsworth.hwk2.domain.statement.Statement
 import me.jackgoldsworth.hwk2.domain.statement.VariableStatement
@@ -18,10 +19,10 @@ class StatementVisitor(private val scope: Scope) : HwKBaseVisitor<Statement>() {
     }
 
     override fun visitVariable(ctx: HwKParser.VariableContext): Statement {
-        val varName = ctx.ID()
+        val varName = ctx.ID().text
         val expression = ctx.expression().accept(expVisitor)
-        val statement = VariableStatement(varName.text, expression)
+        val statement = LocalVariable(expression.type, varName)
         scope.localVariables.add(statement)
-        return statement
+        return VariableStatement(varName, expression)
     }
 }
