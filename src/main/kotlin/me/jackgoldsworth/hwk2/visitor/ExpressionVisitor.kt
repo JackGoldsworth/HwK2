@@ -11,7 +11,6 @@ import me.jackgoldsworth.hwk2.domain.expression.math.Multiply
 import me.jackgoldsworth.hwk2.domain.expression.math.Subtraction
 import me.jackgoldsworth.hwk2.parser.HwKBaseVisitor
 import me.jackgoldsworth.hwk2.parser.HwKParser
-import kotlin.math.pow
 
 class ExpressionVisitor(private val scope: Scope) : HwKBaseVisitor<Expression>() {
 
@@ -48,11 +47,5 @@ class ExpressionVisitor(private val scope: Scope) : HwKBaseVisitor<Expression>()
         val firstVal = ctx.expression(0).accept(this)
         val secondVal = ctx.expression(1).accept(this)
         return Division(Type.INT, firstVal, secondVal)
-    }
-
-    override fun visitEXP(ctx: HwKParser.EXPContext): Expression {
-        val firstVal = ctx.expression(0).text
-        val secondVal = ctx.expression(1).text
-        return Value(Type.INT, firstVal.toDouble().pow(secondVal.toDouble()).toInt().toString())
     }
 }

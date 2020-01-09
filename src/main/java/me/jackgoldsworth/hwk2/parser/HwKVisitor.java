@@ -113,15 +113,6 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
     T visitVAR(HwKParser.VARContext ctx);
 
     /**
-     * Visit a parse tree produced by the {@code EXP}
-     * labeled alternative in {@link HwKParser#expression}.
-     *
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    T visitEXP(HwKParser.EXPContext ctx);
-
-    /**
      * Visit a parse tree produced by {@link HwKParser#function}.
      *
      * @param ctx the parse tree

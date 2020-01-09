@@ -150,17 +150,6 @@ public class HwKBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Hw
      * {@link #visitChildren} on {@code ctx}.</p>
      */
     @Override
-    public T visitEXP(HwKParser.EXPContext ctx) {
-        return visitChildren(ctx);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation returns the result of calling
-     * {@link #visitChildren} on {@code ctx}.</p>
-     */
-    @Override
     public T visitFunction(HwKParser.FunctionContext ctx) {
         return visitChildren(ctx);
     }

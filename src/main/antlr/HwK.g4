@@ -12,19 +12,18 @@ type: ID;
 
 print: 'print(' expression ')';
 
-statement: variable | print | imports;
+statement: variable | print;
 
 variable: 'var' ID '=' expression;
 
 expression: varReference # VAR
           | value # VAL
-          | expression '^' expression # EXP
           | expression '*' expression # MULT
           | expression '/' expression # DIV
           | expression '-' expression # SUB
           | expression '+' expression # ADD;
 
-function: 'fn' ID '(' parameter* ')' '->' type* '{' (variable | print)* '}';
+function: 'fn' ID '(' parameter* ')' '->' type '{' statement* '}';
 
 value: (NUMBER | STRING)+;
 varReference: ID;
