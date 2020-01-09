@@ -17,7 +17,7 @@ class ExpressionVisitor(private val scope: Scope) : HwKBaseVisitor<Expression>()
     override fun visitVarReference(ctx: HwKParser.VarReferenceContext): Expression {
         val varName = ctx.ID().text
         return VariableReference(
-            (scope.getLocalVariable(varName) ?: error("Variable was not found in the scope!")).expression.type, varName
+            (scope.getLocalVariable(varName) ?: error("Variable was not found in the scope!")).type, varName
         )
     }
 
