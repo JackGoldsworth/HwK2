@@ -1,6 +1,6 @@
 package me.jackgoldsworth.hwk2.domain.function
 
-import me.jackgoldsworth.hwk2.domain.Scope
+import me.jackgoldsworth.hwk2.domain.scope.Scope
 import me.jackgoldsworth.hwk2.domain.Type
 import me.jackgoldsworth.hwk2.domain.statement.Statement
 

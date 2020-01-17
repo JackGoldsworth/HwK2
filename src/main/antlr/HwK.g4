@@ -4,9 +4,9 @@ grammar HwK;
 * Parsing
 */
 
-compilationUnit: (statement | function)* EOF;
+compilationUnit: (imports | statement | function)* EOF;
 
-imports: '@imp' ID ('.' ID)*;
+imports: '@imp' IMPORTNAME;
 
 type: ID;
 
@@ -37,6 +37,7 @@ WS: [ \t\n\r]+ -> skip;
 NUMBER: (DIGIT | HEX)+;
 ID: LETTER (LETTER | DIGIT)*;
 STRING: '"'.*?'"';
+IMPORTNAME: ([a-zA-Z] | '/')+;
 fragment DIGIT: [0-9]+;
 fragment HEX: '0x' ([0-9] | [a-z] | [A-Z]);
 fragment LETTER: [a-zA-Z];

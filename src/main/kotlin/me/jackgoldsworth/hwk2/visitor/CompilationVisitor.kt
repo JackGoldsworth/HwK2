@@ -1,7 +1,7 @@
 package me.jackgoldsworth.hwk2.visitor
 
 import me.jackgoldsworth.hwk2.domain.CompilationUnit
-import me.jackgoldsworth.hwk2.domain.Scope
+import me.jackgoldsworth.hwk2.domain.scope.Scope
 import me.jackgoldsworth.hwk2.parser.HwKBaseVisitor
 import me.jackgoldsworth.hwk2.parser.HwKParser
 

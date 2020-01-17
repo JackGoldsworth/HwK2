@@ -1,6 +1,7 @@
 package me.jackgoldsworth.hwk2.domain
 
 import me.jackgoldsworth.hwk2.domain.function.Function
+import me.jackgoldsworth.hwk2.domain.scope.Scope
 import me.jackgoldsworth.hwk2.domain.statement.Statement
 
 data class CompilationUnit(
