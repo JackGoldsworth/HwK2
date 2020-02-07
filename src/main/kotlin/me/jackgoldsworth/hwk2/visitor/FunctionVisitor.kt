@@ -11,7 +11,7 @@ import me.jackgoldsworth.hwk2.parser.HwKBaseVisitor
 import me.jackgoldsworth.hwk2.parser.HwKParser
 import java.util.stream.Collectors
 
-class FunctionVisitor : HwKBaseVisitor<Function>() {
+class FunctionVisitor(private val upperScope: Scope) : HwKBaseVisitor<Function>() {
 
     val scope = Scope()
 
@@ -21,7 +21,9 @@ class FunctionVisitor : HwKBaseVisitor<Function>() {
         val statements = getStatements(ctx.statement())
         val returnType = Type.getTypeFromName(ctx.type())
         val expression = getReturnExpression(ctx.ret())
-        return Function(name, parameters, returnType, scope, statements, expression)
+        val function = Function(name, parameters, returnType, scope, statements, expression)
+        upperScope.functions[name] = function
+        return function
     }
 
     private fun getParameters(ctx: List<HwKParser.ParameterContext>): List<Parameter> {

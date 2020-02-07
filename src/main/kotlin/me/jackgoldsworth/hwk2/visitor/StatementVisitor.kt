@@ -8,6 +8,7 @@ import me.jackgoldsworth.hwk2.domain.function.Parameter
 import me.jackgoldsworth.hwk2.domain.statement.*
 import me.jackgoldsworth.hwk2.parser.HwKBaseVisitor
 import me.jackgoldsworth.hwk2.parser.HwKParser
+import java.lang.Error
 
 class StatementVisitor(private val scope: Scope) : HwKBaseVisitor<Statement>() {
 
@@ -28,6 +29,7 @@ class StatementVisitor(private val scope: Scope) : HwKBaseVisitor<Statement>() {
     }
 
     override fun visitFunctionCall(ctx: HwKParser.FunctionCallContext): Statement {
-        return FunctionStatement(ctx.ID().text, listOf(), Type.STRING) // TODO: Remove string hardcode
+        val name = ctx.ID().text
+        return FunctionStatement(name, listOf(), scope.functions[name]?.returnType ?: error("Function $name could not be found."))
     }
 }

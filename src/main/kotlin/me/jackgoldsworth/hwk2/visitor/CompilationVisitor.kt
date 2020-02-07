@@ -9,10 +9,10 @@ class CompilationVisitor(private val fileName: String) : HwKBaseVisitor<Compilat
 
     override fun visitCompilationUnit(ctx: HwKParser.CompilationUnitContext): CompilationUnit {
         val scope = Scope()
-        val functionVisitor = FunctionVisitor()
+        val functionVisitor = FunctionVisitor(scope)
         val statementVisitor = StatementVisitor(scope)
-        val statements = ctx.statement().map { it.accept(statementVisitor) }.toList()
         val functions = ctx.function().map { it.accept(functionVisitor) }.toList()
+        val statements = ctx.statement().map { it.accept(statementVisitor) }.toList()
         return CompilationUnit(fileName, functions, statements, scope)
     }
 }
