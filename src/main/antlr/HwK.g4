@@ -23,7 +23,9 @@ expression: varReference # VAR
           | expression '-' expression # SUB
           | expression '+' expression # ADD;
 
-function: 'fn' ID '('? parameter* ')'? ('->' type)? '{' statement* '}';
+function: 'fn' ID '('? parameter* ')'? ('->' type)? '{' statement* ret? '}';
+
+ret: 'ret' expression;
 
 functionCall: ID '('? (varReference | value)* ')'?;
 value: (NUMBER | STRING)+;

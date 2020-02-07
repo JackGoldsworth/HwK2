@@ -2,6 +2,7 @@ package me.jackgoldsworth.hwk2.visitor
 
 import me.jackgoldsworth.hwk2.domain.scope.Scope
 import me.jackgoldsworth.hwk2.domain.Type
+import me.jackgoldsworth.hwk2.domain.expression.Expression
 import me.jackgoldsworth.hwk2.domain.function.Function
 import me.jackgoldsworth.hwk2.domain.function.LocalVariable
 import me.jackgoldsworth.hwk2.domain.function.Parameter
@@ -19,7 +20,8 @@ class FunctionVisitor : HwKBaseVisitor<Function>() {
         val parameters = getParameters(ctx.parameter())
         val statements = getStatements(ctx.statement())
         val returnType = Type.getTypeFromName(ctx.type())
-        return Function(name, parameters, returnType, scope, statements)
+        val expression = getReturnExpression(ctx.ret())
+        return Function(name, parameters, returnType, scope, statements, expression)
     }
 
     private fun getParameters(ctx: List<HwKParser.ParameterContext>): List<Parameter> {
@@ -33,5 +35,13 @@ class FunctionVisitor : HwKBaseVisitor<Function>() {
     private fun getStatements(ctx: List<HwKParser.StatementContext>): List<Statement> {
         val statementVisitor = StatementVisitor(scope)
         return ctx.map { it.accept(statementVisitor) }
+    }
+
+    private fun getReturnExpression(ctx: HwKParser.RetContext?): Expression? {
+        if(ctx == null) {
+            return null
+        }
+        val expressionVisitor = ExpressionVisitor(scope)
+        return ctx.expression().accept(expressionVisitor)
     }
 }

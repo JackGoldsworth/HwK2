@@ -3,7 +3,8 @@ var test1 = 5 * test + 3
 print(test1)
 testFunc
 
-fn testFunc {
-    var thing = 5
+fn testFunc -> String {
+    var thing = "Hello, World"
     print(thing)
+    ret thing
 }

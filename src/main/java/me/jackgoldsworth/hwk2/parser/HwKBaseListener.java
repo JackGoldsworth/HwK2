@@ -172,6 +172,18 @@ public class HwKBaseListener implements HwKListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterRet(HwKParser.RetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRet(HwKParser.RetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterFunctionCall(HwKParser.FunctionCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
