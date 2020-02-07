@@ -1,7 +1,8 @@
-package me.jackgoldsworth.hwk2.bytecode
+package me.jackgoldsworth.hwk2.codegen
 
 import me.jackgoldsworth.hwk2.domain.scope.Scope
 import me.jackgoldsworth.hwk2.domain.Type
+import me.jackgoldsworth.hwk2.domain.statement.FunctionStatement
 import me.jackgoldsworth.hwk2.domain.statement.PrintStatement
 import me.jackgoldsworth.hwk2.domain.statement.VariableStatement
 import org.objectweb.asm.MethodVisitor
@@ -37,5 +38,16 @@ class StatementGenerator(
         } else {
             methodVisitor.visitVarInsn(Opcodes.ISTORE, index)
         }
+    }
+
+    fun generate(functionCall: FunctionStatement) {
+        val description = Type.getMethodDescription(functionCall.parameters, functionCall.type)
+        methodVisitor.visitMethodInsn(
+            Opcodes.INVOKESTATIC,
+            "example", // TODO: Make owner dynamic.
+            functionCall.name,
+            description,
+            false
+        )
     }
 }

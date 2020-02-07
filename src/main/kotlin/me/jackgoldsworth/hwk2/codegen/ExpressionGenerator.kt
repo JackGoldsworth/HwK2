@@ -1,4 +1,4 @@
-package me.jackgoldsworth.hwk2.bytecode
+package me.jackgoldsworth.hwk2.codegen
 
 import me.jackgoldsworth.hwk2.domain.scope.Scope
 import me.jackgoldsworth.hwk2.domain.Type

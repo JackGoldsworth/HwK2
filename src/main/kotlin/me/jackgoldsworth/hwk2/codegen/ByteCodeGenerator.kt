@@ -1,4 +1,4 @@
-package me.jackgoldsworth.hwk2.bytecode
+package me.jackgoldsworth.hwk2.codegen
 
 import me.jackgoldsworth.hwk2.domain.CompilationUnit
 import org.objectweb.asm.ClassWriter
@@ -28,6 +28,8 @@ class ByteCodeGenerator {
             ExpressionGenerator(methodVisitor, compilationUnit.scope),
             compilationUnit.scope
         )
+        val functionGenerator = FunctionGenerator(classWriter)
+        compilationUnit.functions.forEach { it.accept(functionGenerator) }
         compilationUnit.statements.forEach { it.accept(statementGenerator) }
         methodVisitor.visitInsn(Opcodes.RETURN)
         methodVisitor.visitMaxs(100, compilationUnit.scope.localVariables.size)

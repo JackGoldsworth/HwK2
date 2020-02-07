@@ -12,7 +12,7 @@ type: ID;
 
 print: 'print(' expression ')';
 
-statement: variable | print;
+statement: variable | print | functionCall;
 
 variable: 'var' ID '=' expression;
 
@@ -23,8 +23,9 @@ expression: varReference # VAR
           | expression '-' expression # SUB
           | expression '+' expression # ADD;
 
-function: 'fn' ID '(' parameter* ')' '->' type '{' statement* '}';
+function: 'fn' ID '('? parameter* ')'? ('->' type)? '{' statement* '}';
 
+functionCall: ID '('? (varReference | value)* ')'?;
 value: (NUMBER | STRING)+;
 varReference: ID;
 parameter: type ':' ID ','*;

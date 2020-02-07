@@ -1,4 +1,4 @@
-package me.jackgoldsworth.hwk2.bytecode
+package me.jackgoldsworth.hwk2.codegen
 
 import me.jackgoldsworth.hwk2.domain.Type
 import me.jackgoldsworth.hwk2.domain.function.Function
@@ -11,7 +11,7 @@ class FunctionGenerator(private val classWriter: ClassWriter) {
         val name = function.name
         val description = Type.getMethodDescription(function.parameters, function.returnType)
         val scope = function.scope
-        val methodVisitor = classWriter.visitMethod(Opcodes.ACC_PUBLIC, name, description, null, null)
+        val methodVisitor = classWriter.visitMethod(Opcodes.ACC_PUBLIC + Opcodes.ACC_STATIC, name, description, null, null)
         methodVisitor.visitCode()
         val generator = StatementGenerator(methodVisitor, ExpressionGenerator(methodVisitor, scope), scope)
         function.statement.forEach { it.accept(generator) }

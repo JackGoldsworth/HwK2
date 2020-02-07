@@ -7,14 +7,14 @@ import java.util.stream.Collectors
 enum class Type(val descriptor: String) {
     INT("I"),
     STRING("Ljava/lang/String;"),
-    VOID("");
+    VOID("V");
 
     companion object {
         fun getTypeFromName(context: HwKParser.TypeContext?): Type {
             if (context == null) return VOID
             val typeName = context.text
             if (typeName == "java/lang/String") return STRING
-            return Type.valueOf(typeName)
+            return valueOf(typeName.toUpperCase())
         }
 
         fun getTypeFromValue(value: String): Type {

@@ -1,6 +1,6 @@
 package me.jackgoldsworth.hwk2.domain.scope
 
-import me.jackgoldsworth.hwk2.bytecode.ImportGenerator
+import me.jackgoldsworth.hwk2.codegen.ImportGenerator
 
 class Import(val fileLoc: String) {
 

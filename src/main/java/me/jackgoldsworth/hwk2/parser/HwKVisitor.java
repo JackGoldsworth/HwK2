@@ -95,6 +95,12 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFunction(HwKParser.FunctionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link HwKParser#functionCall}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionCall(HwKParser.FunctionCallContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link HwKParser#value}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

@@ -1,6 +1,6 @@
 package me.jackgoldsworth.hwk2.domain.expression.math
 
-import me.jackgoldsworth.hwk2.bytecode.ExpressionGenerator
+import me.jackgoldsworth.hwk2.codegen.ExpressionGenerator
 import me.jackgoldsworth.hwk2.domain.Type
 import me.jackgoldsworth.hwk2.domain.expression.Expression
 
