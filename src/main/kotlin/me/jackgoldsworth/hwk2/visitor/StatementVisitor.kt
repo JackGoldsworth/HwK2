@@ -28,6 +28,6 @@ class StatementVisitor(private val scope: Scope) : HwKBaseVisitor<Statement>() {
     }
 
     override fun visitFunctionCall(ctx: HwKParser.FunctionCallContext): Statement {
-        return FunctionStatement(ctx.ID().text, listOf(), Type.VOID)
+        return FunctionStatement(ctx.ID().text, listOf(), Type.STRING) // TODO: Remove string hardcode
     }
 }
