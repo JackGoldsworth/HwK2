@@ -1,6 +1,5 @@
 package me.jackgoldsworth.hwk2.visitor
 
-import me.jackgoldsworth.hwk2.domain.scope.Scope
 import me.jackgoldsworth.hwk2.domain.Type
 import me.jackgoldsworth.hwk2.domain.expression.Expression
 import me.jackgoldsworth.hwk2.domain.expression.Value
@@ -9,6 +8,8 @@ import me.jackgoldsworth.hwk2.domain.expression.math.Addition
 import me.jackgoldsworth.hwk2.domain.expression.math.Division
 import me.jackgoldsworth.hwk2.domain.expression.math.Multiply
 import me.jackgoldsworth.hwk2.domain.expression.math.Subtraction
+import me.jackgoldsworth.hwk2.domain.scope.Scope
+import me.jackgoldsworth.hwk2.domain.statement.FunctionStatement
 import me.jackgoldsworth.hwk2.parser.HwKBaseVisitor
 import me.jackgoldsworth.hwk2.parser.HwKParser
 
@@ -18,6 +19,15 @@ class ExpressionVisitor(private val scope: Scope) : HwKBaseVisitor<Expression>()
         val varName = ctx.ID().text
         return VariableReference(
             (scope.getLocalVariable(varName) ?: error("Variable was not found in the scope!")).type, varName
+        )
+    }
+
+    override fun visitFUNC(ctx: HwKParser.FUNCContext): Expression {
+        val name = ctx.functionCall().ID().text
+        return FunctionStatement(
+            name,
+            listOf(),
+            scope.functions[name]?.returnType ?: error("Function $name could not be found.")
         )
     }
 

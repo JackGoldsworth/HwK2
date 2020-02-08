@@ -72,26 +72,40 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
 	 * labeled alternative in {@link HwKParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
-	 */
-	T visitADD(HwKParser.ADDContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code MULT}
-	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMULT(HwKParser.MULTContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code VAR}
-	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitVAR(HwKParser.VARContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HwKParser#function}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
+     */
+    T visitADD(HwKParser.ADDContext ctx);
+
+    /**
+     * Visit a parse tree produced by the {@code MULT}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitMULT(HwKParser.MULTContext ctx);
+
+    /**
+     * Visit a parse tree produced by the {@code FUNC}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitFUNC(HwKParser.FUNCContext ctx);
+
+    /**
+     * Visit a parse tree produced by the {@code VAR}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitVAR(HwKParser.VARContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#function}.
+     * @param ctx the parse tree
+     * @return the visitor result
 	 */
 	T visitFunction(HwKParser.FunctionContext ctx);
 	/**

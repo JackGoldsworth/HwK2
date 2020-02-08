@@ -18,6 +18,7 @@ variable: 'var' ID '=' expression;
 
 expression: varReference # VAR
           | value # VAL
+          | functionCall # FUNC
           | expression '*' expression # MULT
           | expression '/' expression # DIV
           | expression '-' expression # SUB

@@ -1,14 +1,13 @@
 package me.jackgoldsworth.hwk2.visitor
 
-import me.jackgoldsworth.hwk2.domain.Type
-import me.jackgoldsworth.hwk2.domain.function.Function
-import me.jackgoldsworth.hwk2.domain.scope.Scope
 import me.jackgoldsworth.hwk2.domain.function.LocalVariable
-import me.jackgoldsworth.hwk2.domain.function.Parameter
-import me.jackgoldsworth.hwk2.domain.statement.*
+import me.jackgoldsworth.hwk2.domain.scope.Scope
+import me.jackgoldsworth.hwk2.domain.statement.FunctionStatement
+import me.jackgoldsworth.hwk2.domain.statement.PrintStatement
+import me.jackgoldsworth.hwk2.domain.statement.Statement
+import me.jackgoldsworth.hwk2.domain.statement.VariableStatement
 import me.jackgoldsworth.hwk2.parser.HwKBaseVisitor
 import me.jackgoldsworth.hwk2.parser.HwKParser
-import java.lang.Error
 
 class StatementVisitor(private val scope: Scope) : HwKBaseVisitor<Statement>() {
 

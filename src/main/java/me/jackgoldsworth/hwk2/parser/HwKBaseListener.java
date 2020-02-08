@@ -133,26 +133,53 @@ public class HwKBaseListener implements HwKListener {
 	@Override public void exitADD(HwKParser.ADDContext ctx) { }
 	/**
 	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMULT(HwKParser.MULTContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMULT(HwKParser.MULTContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterVAR(HwKParser.VARContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterMULT(HwKParser.MULTContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitMULT(HwKParser.MULTContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterFUNC(HwKParser.FUNCContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitFUNC(HwKParser.FUNCContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterVAR(HwKParser.VARContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitVAR(HwKParser.VARContext ctx) { }
 	/**

@@ -1,10 +1,11 @@
 package me.jackgoldsworth.hwk2.codegen
 
-import me.jackgoldsworth.hwk2.domain.scope.Scope
 import me.jackgoldsworth.hwk2.domain.Type
 import me.jackgoldsworth.hwk2.domain.expression.Value
 import me.jackgoldsworth.hwk2.domain.expression.VariableReference
 import me.jackgoldsworth.hwk2.domain.expression.math.*
+import me.jackgoldsworth.hwk2.domain.scope.Scope
+import me.jackgoldsworth.hwk2.domain.statement.FunctionStatement
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
@@ -34,6 +35,17 @@ class ExpressionGenerator(private val methodVisitor: MethodVisitor, private val 
         } else if (variable.type == Type.STRING) {
             methodVisitor.visitVarInsn(Opcodes.ALOAD, index)
         }
+    }
+
+    fun generate(functionCall: FunctionStatement) {
+        val description = Type.getMethodDescription(functionCall.parameters, functionCall.type)
+        methodVisitor.visitMethodInsn(
+            Opcodes.INVOKESTATIC,
+            "example", // TODO: Make owner dynamic.
+            functionCall.name,
+            description,
+            false
+        )
     }
 
     fun generate(addition: Addition) {

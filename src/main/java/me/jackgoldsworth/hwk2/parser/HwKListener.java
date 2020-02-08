@@ -118,26 +118,48 @@ public interface HwKListener extends ParseTreeListener {
 	/**
 	 * Enter a parse tree produced by the {@code MULT}
 	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterMULT(HwKParser.MULTContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code MULT}
-	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitMULT(HwKParser.MULTContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code VAR}
-	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterVAR(HwKParser.VARContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code VAR}
-	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 */
+     * @param ctx the parse tree
+     */
+    void enterMULT(HwKParser.MULTContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code MULT}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitMULT(HwKParser.MULTContext ctx);
+
+    /**
+     * Enter a parse tree produced by the {@code FUNC}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterFUNC(HwKParser.FUNCContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code FUNC}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitFUNC(HwKParser.FUNCContext ctx);
+
+    /**
+     * Enter a parse tree produced by the {@code VAR}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterVAR(HwKParser.VARContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code VAR}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
 	void exitVAR(HwKParser.VARContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link HwKParser#function}.
