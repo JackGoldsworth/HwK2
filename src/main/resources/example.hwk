@@ -1,11 +1,8 @@
-var test = 5
-var test1 = 5 * test + 3
-print(test1)
-var tryThis = testFunc()
-print(tryThis)
+var thing = "Test"
+var tryThis = testFunc(thing, 5)
 
-fn testFunc -> String {
-    var thing = "Hello, World"
+fn testFunc(String: thing, Int: test) -> String {
     print(thing)
+    print(test)
     ret thing
 }

@@ -8,6 +8,7 @@ import me.jackgoldsworth.hwk2.domain.expression.math.Addition
 import me.jackgoldsworth.hwk2.domain.expression.math.Division
 import me.jackgoldsworth.hwk2.domain.expression.math.Multiply
 import me.jackgoldsworth.hwk2.domain.expression.math.Subtraction
+import me.jackgoldsworth.hwk2.domain.function.ParameterCall
 import me.jackgoldsworth.hwk2.domain.scope.Scope
 import me.jackgoldsworth.hwk2.domain.statement.FunctionStatement
 import me.jackgoldsworth.hwk2.parser.HwKBaseVisitor
@@ -23,10 +24,27 @@ class ExpressionVisitor(private val scope: Scope) : HwKBaseVisitor<Expression>()
     }
 
     override fun visitFUNC(ctx: HwKParser.FUNCContext): Expression {
-        val name = ctx.functionCall().ID().text
+        val name = ctx.functionCall().ID(0).text
+        val params = mutableListOf<ParameterCall>()
+        for (paramVal in 1 until ctx.functionCall().ID().size) {
+            val param = ctx.functionCall().ID(paramVal)
+            val paramText = param.text
+            if (scope.getLocalVariable(paramText) != null) {
+                params.add(
+                    ParameterCall(
+                        paramText,
+                        null,
+                        scope.getLocalVariable(paramText)?.type ?: error("Local variable $paramText not found"),
+                        true
+                    )
+                )
+            } else {
+                params.add(ParameterCall(null, paramText, Type.getTypeFromValue(paramText), false))
+            }
+        }
         return FunctionStatement(
             name,
-            listOf(),
+            params,
             scope.functions[name]?.returnType ?: error("Function $name could not be found.")
         )
     }

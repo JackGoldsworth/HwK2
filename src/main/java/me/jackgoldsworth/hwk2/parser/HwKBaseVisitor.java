@@ -69,16 +69,20 @@ public class HwKBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Hw
 	@Override public T visitDIV(HwKParser.DIVContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitSUB(HwKParser.SUBContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
+     *
+     * <p>The default implementation returns the result of calling
+     * {@link #visitChildren} on {@code ctx}.</p>
+     */
+    @Override
+    public T visitSUB(HwKParser.SUBContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation returns the result of calling
+     * {@link #visitChildren} on {@code ctx}.</p>
      */
     @Override
     public T visitADD(HwKParser.ADDContext ctx) {
@@ -122,16 +126,23 @@ public class HwKBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Hw
      * {@inheritDoc}
      *
      * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitFunction(HwKParser.FunctionContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitRet(HwKParser.RetContext ctx) { return visitChildren(ctx); }
+     * {@link #visitChildren} on {@code ctx}.</p>
+     */
+    @Override
+    public T visitFunction(HwKParser.FunctionContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation returns the result of calling
+     * {@link #visitChildren} on {@code ctx}.</p>
+     */
+    @Override
+    public T visitRet(HwKParser.RetContext ctx) {
+        return visitChildren(ctx);
+    }
 	/**
 	 * {@inheritDoc}
 	 *

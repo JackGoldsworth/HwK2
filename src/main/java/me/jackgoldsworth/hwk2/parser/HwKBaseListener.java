@@ -123,16 +123,22 @@ public class HwKBaseListener implements HwKListener {
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterADD(HwKParser.ADDContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitADD(HwKParser.ADDContext ctx) { }
-	/**
-	 * {@inheritDoc}
+     */
+    @Override
+    public void enterADD(HwKParser.ADDContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitADD(HwKParser.ADDContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
      *
      * <p>The default implementation does nothing.</p>
      */
@@ -180,16 +186,22 @@ public class HwKBaseListener implements HwKListener {
      * {@inheritDoc}
      *
      * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitVAR(HwKParser.VARContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFunction(HwKParser.FunctionContext ctx) { }
-	/**
-	 * {@inheritDoc}
+     */
+    @Override
+    public void exitVAR(HwKParser.VARContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterFunction(HwKParser.FunctionContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */

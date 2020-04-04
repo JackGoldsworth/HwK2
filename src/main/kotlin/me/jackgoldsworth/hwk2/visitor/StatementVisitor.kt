@@ -1,6 +1,8 @@
 package me.jackgoldsworth.hwk2.visitor
 
+import me.jackgoldsworth.hwk2.domain.Type
 import me.jackgoldsworth.hwk2.domain.function.LocalVariable
+import me.jackgoldsworth.hwk2.domain.function.ParameterCall
 import me.jackgoldsworth.hwk2.domain.scope.Scope
 import me.jackgoldsworth.hwk2.domain.statement.FunctionStatement
 import me.jackgoldsworth.hwk2.domain.statement.PrintStatement
@@ -28,7 +30,28 @@ class StatementVisitor(private val scope: Scope) : HwKBaseVisitor<Statement>() {
     }
 
     override fun visitFunctionCall(ctx: HwKParser.FunctionCallContext): Statement {
-        val name = ctx.ID().text
-        return FunctionStatement(name, listOf(), scope.functions[name]?.returnType ?: error("Function $name could not be found."))
+        val name = ctx.ID(0).text
+        val params = mutableListOf<ParameterCall>()
+        for (paramVal in 1 until ctx.ID().size) {
+            val param = ctx.ID(paramVal)
+            val paramText = param.text
+            if (scope.getLocalVariable(paramText) != null) {
+                params.add(
+                    ParameterCall(
+                        paramText,
+                        null,
+                        scope.getLocalVariable(paramText)?.type ?: error("Local variable $paramText not found"),
+                        true
+                    )
+                )
+            } else {
+                params.add(ParameterCall(null, paramText, Type.getTypeFromValue(paramText), false))
+            }
+        }
+        return FunctionStatement(
+            name,
+            params,
+            scope.functions[name]?.returnType ?: error("Function $name could not be found.")
+        )
     }
 }

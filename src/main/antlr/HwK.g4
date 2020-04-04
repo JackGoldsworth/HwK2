@@ -28,7 +28,7 @@ function: 'fn' ID '('? parameter* ')'? ('->' type)? '{' statement* ret? '}';
 
 ret: 'ret' expression;
 
-functionCall: ID '('? (varReference | value)* ')'?;
+functionCall: ID '('? (ID)* ','* ')'?;
 value: (NUMBER | STRING)+;
 varReference: ID;
 parameter: type ':' ID ','*;

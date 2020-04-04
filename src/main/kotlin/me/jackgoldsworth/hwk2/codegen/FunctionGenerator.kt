@@ -17,6 +17,7 @@ class FunctionGenerator(private val classWriter: ClassWriter) {
         val scope = function.scope
         val methodVisitor = classWriter.visitMethod(Opcodes.ACC_PUBLIC + Opcodes.ACC_STATIC, name, description, null, null)
         methodVisitor.visitCode()
+
         val generator = StatementGenerator(methodVisitor, ExpressionGenerator(methodVisitor, scope), scope)
         function.statement.forEach { it.accept(generator) }
         generateReturnExpression(function, methodVisitor, scope)

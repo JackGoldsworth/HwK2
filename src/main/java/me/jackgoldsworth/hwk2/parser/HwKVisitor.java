@@ -62,16 +62,18 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
 	T visitDIV(HwKParser.DIVContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code SUB}
-	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSUB(HwKParser.SUBContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code ADD}
-	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
+     * labeled alternative in {@link HwKParser#expression}.
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitSUB(HwKParser.SUBContext ctx);
+
+    /**
+     * Visit a parse tree produced by the {@code ADD}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
      */
     T visitADD(HwKParser.ADDContext ctx);
 
@@ -104,18 +106,22 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
 
     /**
      * Visit a parse tree produced by {@link HwKParser#function}.
+     *
      * @param ctx the parse tree
      * @return the visitor result
-	 */
-	T visitFunction(HwKParser.FunctionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HwKParser#ret}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRet(HwKParser.RetContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HwKParser#functionCall}.
+     */
+    T visitFunction(HwKParser.FunctionContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#ret}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitRet(HwKParser.RetContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#functionCall}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */

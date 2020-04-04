@@ -1,7 +1,7 @@
 package me.jackgoldsworth.hwk2.codegen
 
-import me.jackgoldsworth.hwk2.domain.scope.Scope
 import me.jackgoldsworth.hwk2.domain.Type
+import me.jackgoldsworth.hwk2.domain.scope.Scope
 import me.jackgoldsworth.hwk2.domain.statement.FunctionStatement
 import me.jackgoldsworth.hwk2.domain.statement.PrintStatement
 import me.jackgoldsworth.hwk2.domain.statement.VariableStatement
@@ -41,12 +41,33 @@ class StatementGenerator(
     }
 
     fun generate(functionCall: FunctionStatement) {
-        val description = Type.getMethodDescription(functionCall.parameters, functionCall.type)
+        //TODO get rid of duplicate code.
+        functionCall.parameters.forEach {
+            if (it.varReference) {
+                if (it.type == Type.STRING) {
+                    methodVisitor.visitVarInsn(
+                        Opcodes.ALOAD,
+                        scope.getIndexOfLocalVariable(it.name!!) ?: error("Variable: ${it.name} was not found")
+                    )
+                } else {
+                    methodVisitor.visitVarInsn(
+                        Opcodes.ILOAD,
+                        scope.getIndexOfLocalVariable(it.name!!) ?: error("Variable: ${it.name} was not found")
+                    )
+                }
+            } else {
+                if (it.type == Type.STRING) {
+                    methodVisitor.visitIntInsn(Opcodes.ILOAD, it.value!!.toInt())
+                } else {
+                    methodVisitor.visitLdcInsn(it.value)
+                }
+            }
+        }
         methodVisitor.visitMethodInsn(
             Opcodes.INVOKESTATIC,
             "example", // TODO: Make owner dynamic.
             functionCall.name,
-            description,
+            scope.functions[functionCall.name]?.description,
             false
         )
     }
