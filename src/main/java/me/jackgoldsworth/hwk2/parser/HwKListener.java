@@ -98,16 +98,18 @@ public interface HwKListener extends ParseTreeListener {
 	 */
 	void enterSUB(HwKParser.SUBContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code SUB}
-	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitSUB(HwKParser.SUBContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ADD}
-	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 */
+     * Exit a parse tree produced by the {@code SUB}
+     * labeled alternative in {@link HwKParser#expression}.
+     * @param ctx the parse tree
+     */
+    void exitSUB(HwKParser.SUBContext ctx);
+
+    /**
+     * Enter a parse tree produced by the {@code ADD}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
     void enterADD(HwKParser.ADDContext ctx);
 
     /**
@@ -178,16 +180,20 @@ public interface HwKListener extends ParseTreeListener {
      *
      * @param ctx the parse tree
      */
-	void exitFunction(HwKParser.FunctionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link HwKParser#ret}.
-	 * @param ctx the parse tree
-	 */
-	void enterRet(HwKParser.RetContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link HwKParser#ret}.
-	 * @param ctx the parse tree
-	 */
+    void exitFunction(HwKParser.FunctionContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link HwKParser#ret}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterRet(HwKParser.RetContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#ret}.
+     *
+     * @param ctx the parse tree
+     */
 	void exitRet(HwKParser.RetContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link HwKParser#functionCall}.
@@ -214,19 +220,36 @@ public interface HwKListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void enterVarReference(HwKParser.VarReferenceContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#varReference}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitVarReference(HwKParser.VarReferenceContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link HwKParser#parameter}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterParameter(HwKParser.ParameterContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#parameter}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitParameter(HwKParser.ParameterContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link HwKParser#funcArgs}.
+     * @param ctx the parse tree
+     */
+    void enterFuncArgs(HwKParser.FuncArgsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link HwKParser#varReference}.
+	 * Exit a parse tree produced by {@link HwKParser#funcArgs}.
 	 * @param ctx the parse tree
 	 */
-	void exitVarReference(HwKParser.VarReferenceContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link HwKParser#parameter}.
-	 * @param ctx the parse tree
-	 */
-	void enterParameter(HwKParser.ParameterContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link HwKParser#parameter}.
-	 * @param ctx the parse tree
-	 */
-	void exitParameter(HwKParser.ParameterContext ctx);
+	void exitFuncArgs(HwKParser.FuncArgsContext ctx);
 }

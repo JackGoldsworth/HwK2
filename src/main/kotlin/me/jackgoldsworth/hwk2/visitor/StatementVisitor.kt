@@ -30,11 +30,10 @@ class StatementVisitor(private val scope: Scope) : HwKBaseVisitor<Statement>() {
     }
 
     override fun visitFunctionCall(ctx: HwKParser.FunctionCallContext): Statement {
-        val name = ctx.ID(0).text
+        val name = ctx.ID().text
         val params = mutableListOf<ParameterCall>()
-        for (paramVal in 1 until ctx.ID().size) {
-            val param = ctx.ID(paramVal)
-            val paramText = param.text
+        ctx.funcArgs().forEach {
+            val paramText = it.text
             if (scope.getLocalVariable(paramText) != null) {
                 params.add(
                     ParameterCall(

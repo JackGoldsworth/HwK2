@@ -24,11 +24,10 @@ class ExpressionVisitor(private val scope: Scope) : HwKBaseVisitor<Expression>()
     }
 
     override fun visitFUNC(ctx: HwKParser.FUNCContext): Expression {
-        val name = ctx.functionCall().ID(0).text
+        val name = ctx.functionCall().ID().text
         val params = mutableListOf<ParameterCall>()
-        for (paramVal in 1 until ctx.functionCall().ID().size) {
-            val param = ctx.functionCall().ID(paramVal)
-            val paramText = param.text
+        ctx.functionCall().funcArgs().forEach {
+            val paramText = it.text
             if (scope.getLocalVariable(paramText) != null) {
                 params.add(
                     ParameterCall(

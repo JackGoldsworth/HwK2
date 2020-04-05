@@ -13,6 +13,6 @@ class Scope {
     }
 
     fun getLocalVariable(varName: String): LocalVariable? {
-        return localVariables.first { it.name == varName }
+        return localVariables.firstOrNull { it.name == varName }
     }
 }

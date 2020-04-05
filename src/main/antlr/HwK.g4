@@ -28,10 +28,11 @@ function: 'fn' ID '('? parameter* ')'? ('->' type)? '{' statement* ret? '}';
 
 ret: 'ret' expression;
 
-functionCall: ID '('? (ID)* ','* ')'?;
+functionCall: ID '('? funcArgs* ')'?;
 value: (NUMBER | STRING)+;
 varReference: ID;
-parameter: type ':' ID ','*;
+parameter: type ':' ID*;
+funcArgs: NUMBER | STRING | ID;
 
 /*
 * Lexer

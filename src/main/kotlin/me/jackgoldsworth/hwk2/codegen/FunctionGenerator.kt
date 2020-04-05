@@ -21,7 +21,7 @@ class FunctionGenerator(private val classWriter: ClassWriter) {
         val generator = StatementGenerator(methodVisitor, ExpressionGenerator(methodVisitor, scope), scope)
         function.statement.forEach { it.accept(generator) }
         generateReturnExpression(function, methodVisitor, scope)
-        methodVisitor.visitMaxs(-1, -1)
+        methodVisitor.visitMaxs(100, function.scope.localVariables.size)
         methodVisitor.visitEnd()
     }
 

@@ -1,7 +1,9 @@
-var thing = "Test"
-var tryThis = testFunc(thing, 5)
+var param1 = "Test"
+var param2 = 5
+var return = testFunc(param1 param2)
+print(return)
 
-fn testFunc(String: thing, Int: test) -> String {
+fn testFunc(String: thing Int: test) -> String {
     print(thing)
     print(test)
     ret thing
