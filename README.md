@@ -34,48 +34,48 @@ for(i in [0, 4]) {
 
 ## Current Example
 ```kotlin
-var test = 5
-var test1 = 5 * test + 3
-print(test1)
-testFunc
+var param1 = "Test"
+var param2 = 5
+var response = testFunc(param1, param2)
+print(response)
 
-fn testFunc -> String {
-    var thing = "Hello, World"
+fn testFunc(String: thing, Int: test) -> String {
     print(thing)
+    print(test)
     ret thing
 }
 ```
 Which compiles down to:
 ```
-  public static void main(java.lang.String[]);
-    descriptor: ([Ljava/lang/String;)V
-    flags: ACC_PUBLIC, ACC_STATIC
-    Code:
-      stack=100, locals=2, args_size=1
-         0: bipush        5
-         2: istore_0
-         3: bipush        5
-         5: iload_0
-         6: imul
-         7: bipush        3
-         9: iadd
-        10: istore_1
-        11: getstatic     #16                 // Field java/lang/System.out:Ljava/io/PrintStream;
-        14: iload_1
-        15: invokevirtual #25                 // Method java/io/PrintStream.println:(I)V
-        18: invokestatic  #27                 // Method testFunc:()Ljava/lang/String;
-        21: return
-
-  public static java.lang.String testFunc();
-    descriptor: ()Ljava/lang/String;
-    flags: ACC_PUBLIC, ACC_STATIC
-    Code:
-      stack=65535, locals=65535, args_size=0
-         0: ldc           #10                 // String \"Hello, World\"
-         2: astore_0
-         3: getstatic     #16                 // Field java/lang/System.out:Ljava/io/PrintStream;
-         6: aload_0
-         7: invokevirtual #22                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
-        10: aload_0
-        11: areturn
+ public static void main(java.lang.String[]);
+     descriptor: ([Ljava/lang/String;)V
+     flags: ACC_PUBLIC, ACC_STATIC
+     Code:
+       stack=100, locals=3, args_size=1
+          0: ldc           #25                 // String \"Test\"
+          2: astore_0
+          3: bipush        5
+          5: istore_1
+          6: aload_0
+          7: iload_1
+          8: invokestatic  #27                 // Method testFunc:(Ljava/lang/String;I)Ljava/lang/String;
+         11: astore_2
+         12: getstatic     #14                 // Field java/lang/System.out:Ljava/io/PrintStream;
+         15: aload_2
+         16: invokevirtual #20                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         19: return
+ 
+   public static java.lang.String testFunc(java.lang.String, int);
+     descriptor: (Ljava/lang/String;I)Ljava/lang/String;
+     flags: ACC_PUBLIC, ACC_STATIC
+     Code:
+       stack=100, locals=2, args_size=2
+          0: getstatic     #14                 // Field java/lang/System.out:Ljava/io/PrintStream;
+          3: aload_0
+          4: invokevirtual #20                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+          7: getstatic     #14                 // Field java/lang/System.out:Ljava/io/PrintStream;
+         10: iload_1
+         11: invokevirtual #23                 // Method java/io/PrintStream.println:(I)V
+         14: aload_0
+         15: areturn
 ```
