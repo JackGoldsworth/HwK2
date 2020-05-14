@@ -1,7 +1,7 @@
 package me.jackgoldsworth.hwk2
 
-import me.jackgoldsworth.hwk2.codegen.ByteCodeGenerator
-import me.jackgoldsworth.hwk2.domain.CompilationUnit
+import me.jackgoldsworth.hwk2.ast.CompilationUnit
+import me.jackgoldsworth.hwk2.backend.ByteCodeGenerator
 import me.jackgoldsworth.hwk2.parser.HwKLexer
 import me.jackgoldsworth.hwk2.parser.HwKParser
 import me.jackgoldsworth.hwk2.visitor.CompilationVisitor

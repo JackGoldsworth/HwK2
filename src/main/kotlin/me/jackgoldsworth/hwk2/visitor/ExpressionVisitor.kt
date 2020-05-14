@@ -1,16 +1,16 @@
 package me.jackgoldsworth.hwk2.visitor
 
-import me.jackgoldsworth.hwk2.domain.Type
-import me.jackgoldsworth.hwk2.domain.expression.Expression
-import me.jackgoldsworth.hwk2.domain.expression.Value
-import me.jackgoldsworth.hwk2.domain.expression.VariableReference
-import me.jackgoldsworth.hwk2.domain.expression.math.Addition
-import me.jackgoldsworth.hwk2.domain.expression.math.Division
-import me.jackgoldsworth.hwk2.domain.expression.math.Multiply
-import me.jackgoldsworth.hwk2.domain.expression.math.Subtraction
-import me.jackgoldsworth.hwk2.domain.function.ParameterCall
-import me.jackgoldsworth.hwk2.domain.scope.Scope
-import me.jackgoldsworth.hwk2.domain.statement.FunctionStatement
+import me.jackgoldsworth.hwk2.ast.Type
+import me.jackgoldsworth.hwk2.ast.expression.Expression
+import me.jackgoldsworth.hwk2.ast.expression.Value
+import me.jackgoldsworth.hwk2.ast.expression.VariableReference
+import me.jackgoldsworth.hwk2.ast.expression.math.Addition
+import me.jackgoldsworth.hwk2.ast.expression.math.Division
+import me.jackgoldsworth.hwk2.ast.expression.math.Multiply
+import me.jackgoldsworth.hwk2.ast.expression.math.Subtraction
+import me.jackgoldsworth.hwk2.ast.function.ParameterCall
+import me.jackgoldsworth.hwk2.ast.function.scope.Scope
+import me.jackgoldsworth.hwk2.ast.statement.FunctionStatement
 import me.jackgoldsworth.hwk2.parser.HwKBaseVisitor
 import me.jackgoldsworth.hwk2.parser.HwKParser
 

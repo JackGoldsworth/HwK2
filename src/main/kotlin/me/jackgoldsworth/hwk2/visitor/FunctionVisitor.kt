@@ -1,12 +1,12 @@
 package me.jackgoldsworth.hwk2.visitor
 
-import me.jackgoldsworth.hwk2.domain.Type
-import me.jackgoldsworth.hwk2.domain.expression.Expression
-import me.jackgoldsworth.hwk2.domain.function.Function
-import me.jackgoldsworth.hwk2.domain.function.LocalVariable
-import me.jackgoldsworth.hwk2.domain.function.Parameter
-import me.jackgoldsworth.hwk2.domain.scope.Scope
-import me.jackgoldsworth.hwk2.domain.statement.Statement
+import me.jackgoldsworth.hwk2.ast.Type
+import me.jackgoldsworth.hwk2.ast.expression.Expression
+import me.jackgoldsworth.hwk2.ast.function.Function
+import me.jackgoldsworth.hwk2.ast.function.LocalVariable
+import me.jackgoldsworth.hwk2.ast.function.Parameter
+import me.jackgoldsworth.hwk2.ast.function.scope.Scope
+import me.jackgoldsworth.hwk2.ast.statement.Statement
 import me.jackgoldsworth.hwk2.parser.HwKBaseVisitor
 import me.jackgoldsworth.hwk2.parser.HwKParser
 import java.util.stream.Collectors

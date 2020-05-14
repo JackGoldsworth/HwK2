@@ -1,13 +1,13 @@
 package me.jackgoldsworth.hwk2.visitor
 
-import me.jackgoldsworth.hwk2.domain.Type
-import me.jackgoldsworth.hwk2.domain.function.LocalVariable
-import me.jackgoldsworth.hwk2.domain.function.ParameterCall
-import me.jackgoldsworth.hwk2.domain.scope.Scope
-import me.jackgoldsworth.hwk2.domain.statement.FunctionStatement
-import me.jackgoldsworth.hwk2.domain.statement.PrintStatement
-import me.jackgoldsworth.hwk2.domain.statement.Statement
-import me.jackgoldsworth.hwk2.domain.statement.VariableStatement
+import me.jackgoldsworth.hwk2.ast.Type
+import me.jackgoldsworth.hwk2.ast.function.LocalVariable
+import me.jackgoldsworth.hwk2.ast.function.ParameterCall
+import me.jackgoldsworth.hwk2.ast.function.scope.Scope
+import me.jackgoldsworth.hwk2.ast.statement.FunctionStatement
+import me.jackgoldsworth.hwk2.ast.statement.PrintStatement
+import me.jackgoldsworth.hwk2.ast.statement.Statement
+import me.jackgoldsworth.hwk2.ast.statement.VariableStatement
 import me.jackgoldsworth.hwk2.parser.HwKBaseVisitor
 import me.jackgoldsworth.hwk2.parser.HwKParser
 
