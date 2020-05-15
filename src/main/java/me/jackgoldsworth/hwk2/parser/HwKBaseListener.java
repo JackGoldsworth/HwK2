@@ -103,16 +103,21 @@ public class HwKBaseListener implements HwKListener {
 	@Override public void enterDIV(HwKParser.DIVContext ctx) { }
 	/**
 	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDIV(HwKParser.DIVContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterSUB(HwKParser.SUBContext ctx) { }
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitDIV(HwKParser.DIVContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterSUB(HwKParser.SUBContext ctx) {
+    }
 
     /**
      * {@inheritDoc}
@@ -221,16 +226,20 @@ public class HwKBaseListener implements HwKListener {
     @Override
     public void enterRet(HwKParser.RetContext ctx) {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitRet(HwKParser.RetContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitRet(HwKParser.RetContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void enterFunctionCall(HwKParser.FunctionCallContext ctx) { }
 	/**
@@ -244,23 +253,31 @@ public class HwKBaseListener implements HwKListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterValue(HwKParser.ValueContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitValue(HwKParser.ValueContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterVarReference(HwKParser.VarReferenceContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+	@Override public void enterValue(HwKParser.ValueContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitValue(HwKParser.ValueContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterVarReference(HwKParser.VarReferenceContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void exitVarReference(HwKParser.VarReferenceContext ctx) {
@@ -306,9 +323,12 @@ public class HwKBaseListener implements HwKListener {
      * {@inheritDoc}
      *
      * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterEveryRule(ParserRuleContext ctx) { }
-	/**
+     */
+    @Override
+    public void enterEveryRule(ParserRuleContext ctx) {
+    }
+
+    /**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>

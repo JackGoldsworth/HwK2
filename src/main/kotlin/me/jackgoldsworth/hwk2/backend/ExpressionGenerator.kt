@@ -6,10 +6,13 @@ import me.jackgoldsworth.hwk2.ast.expression.VariableReference
 import me.jackgoldsworth.hwk2.ast.expression.math.*
 import me.jackgoldsworth.hwk2.ast.function.scope.Scope
 import me.jackgoldsworth.hwk2.ast.statement.FunctionStatement
+import me.jackgoldsworth.hwk2.optimization.MathOptimization
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
 class ExpressionGenerator(private val methodVisitor: MethodVisitor, private val scope: Scope) {
+
+    private val mathOptimizer = MathOptimization()
 
     /**
      * Puts values onto the stack.
@@ -69,23 +72,31 @@ class ExpressionGenerator(private val methodVisitor: MethodVisitor, private val 
     }
 
     fun generate(addition: Addition) {
-        evaluateExpressions(addition)
-        methodVisitor.visitInsn(Opcodes.IADD)
+        if (!mathOptimizer.optimizeAddition(methodVisitor, addition, scope)) {
+            evaluateExpressions(addition)
+            methodVisitor.visitInsn(Opcodes.IADD)
+        }
     }
 
     fun generate(subtraction: Subtraction) {
-        evaluateExpressions(subtraction)
-        methodVisitor.visitInsn(Opcodes.ISUB)
+        if (!mathOptimizer.optimizeSubtraction(methodVisitor, subtraction, scope)) {
+            evaluateExpressions(subtraction)
+            methodVisitor.visitInsn(Opcodes.ISUB)
+        }
     }
 
     fun generate(multiply: Multiply) {
-        evaluateExpressions(multiply)
-        methodVisitor.visitInsn(Opcodes.IMUL)
+        if (!mathOptimizer.optimizeMultiplication(methodVisitor, multiply, scope)) {
+            evaluateExpressions(multiply)
+            methodVisitor.visitInsn(Opcodes.IMUL)
+        }
     }
 
     fun generate(division: Division) {
-        evaluateExpressions(division)
-        methodVisitor.visitInsn(Opcodes.IDIV)
+        if (!mathOptimizer.optimizeDivision(methodVisitor, division, scope)) {
+            evaluateExpressions(division)
+            methodVisitor.visitInsn(Opcodes.IDIV)
+        }
     }
 
     private fun evaluateExpressions(expression: ArithmeticExpression) {

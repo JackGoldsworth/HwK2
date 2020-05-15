@@ -1,5 +1,5 @@
 var param1 = "Test"
-var param2 = 5
+var param2 = -5 + 5
 var return = testFunc(param1 param2)
 
 fn testFunc(String: thing Int: test) -> String {

@@ -88,18 +88,22 @@ public interface HwKListener extends ParseTreeListener {
 	/**
 	 * Exit a parse tree produced by the {@code DIV}
 	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitDIV(HwKParser.DIVContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code SUB}
-	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterSUB(HwKParser.SUBContext ctx);
-	/**
+     * @param ctx the parse tree
+     */
+    void exitDIV(HwKParser.DIVContext ctx);
+
+    /**
+     * Enter a parse tree produced by the {@code SUB}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterSUB(HwKParser.SUBContext ctx);
+
+    /**
      * Exit a parse tree produced by the {@code SUB}
      * labeled alternative in {@link HwKParser#expression}.
+     *
      * @param ctx the parse tree
      */
     void exitSUB(HwKParser.SUBContext ctx);
@@ -194,32 +198,42 @@ public interface HwKListener extends ParseTreeListener {
      *
      * @param ctx the parse tree
      */
-	void exitRet(HwKParser.RetContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link HwKParser#functionCall}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunctionCall(HwKParser.FunctionCallContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link HwKParser#functionCall}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunctionCall(HwKParser.FunctionCallContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link HwKParser#value}.
-	 * @param ctx the parse tree
-	 */
-	void enterValue(HwKParser.ValueContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link HwKParser#value}.
-	 * @param ctx the parse tree
-	 */
-	void exitValue(HwKParser.ValueContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link HwKParser#varReference}.
-	 * @param ctx the parse tree
-	 */
-	void enterVarReference(HwKParser.VarReferenceContext ctx);
+    void exitRet(HwKParser.RetContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link HwKParser#functionCall}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterFunctionCall(HwKParser.FunctionCallContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#functionCall}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitFunctionCall(HwKParser.FunctionCallContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link HwKParser#value}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterValue(HwKParser.ValueContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#value}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitValue(HwKParser.ValueContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link HwKParser#varReference}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterVarReference(HwKParser.VarReferenceContext ctx);
 
     /**
      * Exit a parse tree produced by {@link HwKParser#varReference}.
@@ -244,9 +258,9 @@ public interface HwKListener extends ParseTreeListener {
 
     /**
      * Enter a parse tree produced by {@link HwKParser#funcArgs}.
-     * @param ctx the parse tree
-     */
-    void enterFuncArgs(HwKParser.FuncArgsContext ctx);
+	 * @param ctx the parse tree
+	 */
+	void enterFuncArgs(HwKParser.FuncArgsContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link HwKParser#funcArgs}.
 	 * @param ctx the parse tree

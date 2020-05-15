@@ -42,16 +42,18 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
 	T visitStatement(HwKParser.StatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link HwKParser#variable}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitVariable(HwKParser.VariableContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code VAL}
-	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitVariable(HwKParser.VariableContext ctx);
+
+    /**
+     * Visit a parse tree produced by the {@code VAL}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
     T visitVAL(HwKParser.VALContext ctx);
 
     /**
@@ -155,10 +157,12 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
      * @return the visitor result
      */
     T visitParameter(HwKParser.ParameterContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HwKParser#funcArgs}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFuncArgs(HwKParser.FuncArgsContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#funcArgs}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitFuncArgs(HwKParser.FuncArgsContext ctx);
 }

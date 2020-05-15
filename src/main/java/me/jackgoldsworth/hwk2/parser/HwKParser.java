@@ -167,11 +167,11 @@ public class HwKParser extends Parser {
 							break;
 							case T__1:
 							case T__3:
-				case ID: {
-					setState(29);
-					statement();
-				}
-					break;
+							case ID: {
+								setState(29);
+								statement();
+							}
+							break;
 							case T__9: {
 								setState(30);
 								function();
@@ -378,21 +378,21 @@ public class HwKParser extends Parser {
 				}
 				break;
 				case T__1:
-				enterOuterAlt(_localctx, 2);
+					enterOuterAlt(_localctx, 2);
 				{
 					setState(48);
 					print();
 				}
 				break;
-			case ID:
-				enterOuterAlt(_localctx, 3);
-			{
-				setState(49);
-				functionCall();
-			}
+				case ID:
+					enterOuterAlt(_localctx, 3);
+				{
+					setState(49);
+					functionCall();
+				}
 				break;
-			default:
-				throw new NoViableAltException(this);
+				default:
+					throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1177,8 +1177,9 @@ public class HwKParser extends Parser {
 
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof HwKListener ) ((HwKListener)listener).exitParameter(this);
+			if (listener instanceof HwKListener) ((HwKListener) listener).exitParameter(this);
 		}
+
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof HwKVisitor ) return ((HwKVisitor<? extends T>)visitor).visitParameter(this);

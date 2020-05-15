@@ -43,6 +43,6 @@ NUMBER: (DIGIT | HEX)+;
 ID: LETTER (LETTER | DIGIT)*;
 STRING: '"'.*?'"';
 IMPORTNAME: ([a-zA-Z] | '/')+;
-fragment DIGIT: [0-9]+;
+fragment DIGIT: '-'? [0-9]+;
 fragment HEX: '0x' ([0-9] | [a-z] | [A-Z]);
 fragment LETTER: [a-zA-Z];
