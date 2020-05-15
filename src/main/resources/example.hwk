@@ -1,11 +1,9 @@
-var param1 = "Test"
-var param2 = -5 + 5
+var param1 = 5
+var param2 = -5
 var return = testFunc(param1 param2)
 
-fn testFunc(String: thing Int: test) -> String {
-    print(thing)
-    print(test)
-    ret thing
+fn testFunc(Int: thing Int: test) -> Int {
+    ret thing + test
 }
 
 print(return)

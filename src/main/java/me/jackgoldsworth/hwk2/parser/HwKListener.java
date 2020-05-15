@@ -78,16 +78,20 @@ public interface HwKListener extends ParseTreeListener {
 	 * labeled alternative in {@link HwKParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitVAL(HwKParser.VALContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code DIV}
-	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterDIV(HwKParser.DIVContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code DIV}
-	 * labeled alternative in {@link HwKParser#expression}.
+    void exitVAL(HwKParser.VALContext ctx);
+
+    /**
+     * Enter a parse tree produced by the {@code DIV}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterDIV(HwKParser.DIVContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code DIV}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
      * @param ctx the parse tree
      */
     void exitDIV(HwKParser.DIVContext ctx);
@@ -258,12 +262,15 @@ public interface HwKListener extends ParseTreeListener {
 
     /**
      * Enter a parse tree produced by {@link HwKParser#funcArgs}.
-	 * @param ctx the parse tree
-	 */
-	void enterFuncArgs(HwKParser.FuncArgsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link HwKParser#funcArgs}.
-	 * @param ctx the parse tree
-	 */
-	void exitFuncArgs(HwKParser.FuncArgsContext ctx);
+     *
+     * @param ctx the parse tree
+     */
+    void enterFuncArgs(HwKParser.FuncArgsContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#funcArgs}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitFuncArgs(HwKParser.FuncArgsContext ctx);
 }

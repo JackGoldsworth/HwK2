@@ -1,8 +1,6 @@
 package me.jackgoldsworth.hwk2.backend
 
 import me.jackgoldsworth.hwk2.ast.Type
-import me.jackgoldsworth.hwk2.ast.expression.Value
-import me.jackgoldsworth.hwk2.ast.expression.VariableReference
 import me.jackgoldsworth.hwk2.ast.function.Function
 import me.jackgoldsworth.hwk2.ast.function.scope.Scope
 import org.objectweb.asm.ClassWriter
@@ -31,27 +29,14 @@ class FunctionGenerator(private val classWriter: ClassWriter) {
 
     private fun generateReturnExpression(function: Function, methodVisitor: MethodVisitor, scope: Scope) {
         val expression = function.expression
-        if(expression == null) {
+        if (expression == null) {
             methodVisitor.visitInsn(Opcodes.RETURN)
-        }
-        else if(expression is VariableReference) {
-            val varName = expression.varName
-            val index = scope.getIndexOfLocalVariable(varName) ?: error("Variable $varName was not found")
-            if(expression.type === Type.STRING) {
-                methodVisitor.visitVarInsn(Opcodes.ALOAD, index)
+        } else {
+            expression.accept(ExpressionGenerator(methodVisitor, scope))
+            if (function.returnType == Type.STRING) {
                 methodVisitor.visitInsn(Opcodes.ARETURN)
-            } else if(expression.type === Type.INT) {
-                methodVisitor.visitVarInsn(Opcodes.ILOAD, index)
+            } else {
                 methodVisitor.visitInsn(Opcodes.IRETURN)
-            }
-        } else if(expression is Value) {
-            val valueVal = expression.value
-            if (expression.type === Type.INT) {
-                methodVisitor.visitIntInsn(Opcodes.BIPUSH, Integer.valueOf(valueVal))
-                methodVisitor.visitInsn(Opcodes.IRETURN)
-            } else if (expression.type === Type.STRING) {
-                methodVisitor.visitLdcInsn(valueVal)
-                methodVisitor.visitInsn(Opcodes.ARETURN)
             }
         }
     }
