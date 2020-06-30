@@ -8,7 +8,7 @@ A JVM scripting language that I started using [Jakub Dziworski's tutorial](http:
 - [x] Create variables with values and references.
 - [x] Do basic math. (add, subtract, divide, and multiply).
 - [x] Print using variables and values.
-- [ ] Functions.
+- [x] Functions.
 - [ ] Loops.
 - [ ] Control statements.
 
