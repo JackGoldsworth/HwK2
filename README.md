@@ -2,7 +2,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=JackGoldsworth_HwK2&metric=alert_status)](https://sonarcloud.io/dashboard?id=JackGoldsworth_HwK2)
 
 # HwK2
-A JVM scripting language that I started using [Jakub Dziworski's tutorial](http://jakubdziworski.github.io/enkel/2016/03/10/enkel_first.html). However, my language is going in a different direction than the original tutorial, so the end results will be quite different. The goal of this language is not to be used, but for me to learn from.
+An imperative JVM language that I started using [Jakub Dziworski's tutorial](http://jakubdziworski.github.io/enkel/2016/03/10/enkel_first.html). However, my language is going in a different direction than the original tutorial, so the end results will be quite different. The goal of this language is not to be used, but for me to learn from.
 
 ## What can be done:
 - [x] Create variables with values and references.
