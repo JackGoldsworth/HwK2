@@ -42,25 +42,7 @@ class ExpressionGenerator(private val methodVisitor: MethodVisitor, private val 
 
     fun generate(functionCall: FunctionStatement) {
         functionCall.parameters.forEach {
-            if (it.varReference) {
-                if (it.type == Type.STRING) {
-                    methodVisitor.visitVarInsn(
-                        Opcodes.ALOAD,
-                        scope.getIndexOfLocalVariable(it.name!!) ?: error("Variable: ${it.name} was not found")
-                    )
-                } else {
-                    methodVisitor.visitVarInsn(
-                        Opcodes.ILOAD,
-                        scope.getIndexOfLocalVariable(it.name!!) ?: error("Variable: ${it.name} was not found")
-                    )
-                }
-            } else {
-                if (it.type == Type.INT) {
-                    methodVisitor.visitIntInsn(Opcodes.ILOAD, it.value!!.toInt())
-                } else {
-                    methodVisitor.visitLdcInsn(it.value)
-                }
-            }
+            it.expression.accept(this)
         }
         methodVisitor.visitMethodInsn(
             Opcodes.INVOKESTATIC,

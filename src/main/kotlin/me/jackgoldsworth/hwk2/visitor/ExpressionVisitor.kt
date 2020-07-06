@@ -26,20 +26,8 @@ class ExpressionVisitor(private val scope: Scope) : HwKBaseVisitor<Expression>()
     override fun visitFUNC(ctx: HwKParser.FUNCContext): Expression {
         val name = ctx.functionCall().ID().text
         val params = mutableListOf<ParameterCall>()
-        ctx.functionCall().funcArgs().forEach {
-            val paramText = it.text
-            if (scope.getLocalVariable(paramText) != null) {
-                params.add(
-                    ParameterCall(
-                        paramText,
-                        null,
-                        scope.getLocalVariable(paramText)?.type ?: error("Local variable $paramText not found"),
-                        true
-                    )
-                )
-            } else {
-                params.add(ParameterCall(null, paramText, Type.getTypeFromValue(paramText), false))
-            }
+        ctx.functionCall().funcArgs().expression().forEach {
+            params.add(ParameterCall(it.accept(this)))
         }
         return FunctionStatement(
             name,

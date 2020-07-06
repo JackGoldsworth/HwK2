@@ -68,16 +68,18 @@ public interface HwKListener extends ParseTreeListener {
 	 */
 	void exitVariable(HwKParser.VariableContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code VAL}
-	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterVAL(HwKParser.VALContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code VAL}
-	 * labeled alternative in {@link HwKParser#expression}.
-	 * @param ctx the parse tree
-	 */
+     * Enter a parse tree produced by the {@code VAL}
+     * labeled alternative in {@link HwKParser#expression}.
+     * @param ctx the parse tree
+     */
+    void enterVAL(HwKParser.VALContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code VAL}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
     void exitVAL(HwKParser.VALContext ctx);
 
     /**

@@ -1,5 +1,5 @@
 package me.jackgoldsworth.hwk2.ast.function
 
-import me.jackgoldsworth.hwk2.ast.Type
+import me.jackgoldsworth.hwk2.ast.expression.Expression
 
-data class ParameterCall(val name: String?, val value: String?, val type: Type, val varReference: Boolean)
+data class ParameterCall(val expression: Expression)

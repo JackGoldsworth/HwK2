@@ -22,16 +22,20 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitImports(HwKParser.ImportsContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HwKParser#type}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitType(HwKParser.TypeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HwKParser#print}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#type}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitType(HwKParser.TypeContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#print}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
      */
     T visitPrint(HwKParser.PrintContext ctx);
 

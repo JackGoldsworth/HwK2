@@ -1,6 +1,5 @@
 package me.jackgoldsworth.hwk2.visitor
 
-import me.jackgoldsworth.hwk2.ast.Type
 import me.jackgoldsworth.hwk2.ast.function.LocalVariable
 import me.jackgoldsworth.hwk2.ast.function.ParameterCall
 import me.jackgoldsworth.hwk2.ast.function.scope.Scope
@@ -32,20 +31,8 @@ class StatementVisitor(private val scope: Scope) : HwKBaseVisitor<Statement>() {
     override fun visitFunctionCall(ctx: HwKParser.FunctionCallContext): Statement {
         val name = ctx.ID().text
         val params = mutableListOf<ParameterCall>()
-        ctx.funcArgs().forEach {
-            val paramText = it.text
-            if (scope.getLocalVariable(paramText) != null) {
-                params.add(
-                    ParameterCall(
-                        paramText,
-                        null,
-                        scope.getLocalVariable(paramText)?.type ?: error("Local variable $paramText not found"),
-                        true
-                    )
-                )
-            } else {
-                params.add(ParameterCall(null, paramText, Type.getTypeFromValue(paramText), false))
-            }
+        ctx.funcArgs().expression().forEach {
+            params.add(ParameterCall(it.accept(expVisitor)))
         }
         return FunctionStatement(
             name,
