@@ -2,7 +2,7 @@ var param1 = 5 - 5
 var param2 = -5
 var return = testFunc(param1, param2)
 
-fn testFunc(Int: thing Int: test) -> Int {
+fn testFunc(Int: thing, Int: test) -> Int {
     ret thing + test
 }
 

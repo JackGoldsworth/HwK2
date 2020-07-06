@@ -28,48 +28,22 @@ public interface HwKListener extends ParseTreeListener {
 	 */
 	void exitImports(HwKParser.ImportsContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link HwKParser#type}.
-	 * @param ctx the parse tree
-	 */
-	void enterType(HwKParser.TypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link HwKParser#type}.
-	 * @param ctx the parse tree
-	 */
-	void exitType(HwKParser.TypeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link HwKParser#print}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrint(HwKParser.PrintContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link HwKParser#print}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrint(HwKParser.PrintContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link HwKParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void enterStatement(HwKParser.StatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link HwKParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void exitStatement(HwKParser.StatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link HwKParser#variable}.
-	 * @param ctx the parse tree
-	 */
-	void enterVariable(HwKParser.VariableContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link HwKParser#variable}.
-	 * @param ctx the parse tree
-	 */
-	void exitVariable(HwKParser.VariableContext ctx);
-	/**
+     * Enter a parse tree produced by {@link HwKParser#statement}.
+     * @param ctx the parse tree
+     */
+    void enterStatement(HwKParser.StatementContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#statement}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitStatement(HwKParser.StatementContext ctx);
+
+    /**
      * Enter a parse tree produced by the {@code VAL}
      * labeled alternative in {@link HwKParser#expression}.
+     *
      * @param ctx the parse tree
      */
     void enterVAL(HwKParser.VALContext ctx);
@@ -131,6 +105,38 @@ public interface HwKListener extends ParseTreeListener {
     void exitADD(HwKParser.ADDContext ctx);
 
     /**
+     * Enter a parse tree produced by the {@code OR}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterOR(HwKParser.ORContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code OR}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitOR(HwKParser.ORContext ctx);
+
+    /**
+     * Enter a parse tree produced by the {@code EQUALS}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterEQUALS(HwKParser.EQUALSContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code EQUALS}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitEQUALS(HwKParser.EQUALSContext ctx);
+
+    /**
      * Enter a parse tree produced by the {@code MULT}
      * labeled alternative in {@link HwKParser#expression}.
      *
@@ -179,6 +185,82 @@ public interface HwKListener extends ParseTreeListener {
     void exitVAR(HwKParser.VARContext ctx);
 
     /**
+     * Enter a parse tree produced by the {@code GREATER_THAN}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterGREATER_THAN(HwKParser.GREATER_THANContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code GREATER_THAN}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitGREATER_THAN(HwKParser.GREATER_THANContext ctx);
+
+    /**
+     * Enter a parse tree produced by the {@code AND}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterAND(HwKParser.ANDContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code AND}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitAND(HwKParser.ANDContext ctx);
+
+    /**
+     * Enter a parse tree produced by the {@code LESS_THAN}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterLESS_THAN(HwKParser.LESS_THANContext ctx);
+
+    /**
+     * Exit a parse tree produced by the {@code LESS_THAN}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitLESS_THAN(HwKParser.LESS_THANContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link HwKParser#print}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterPrint(HwKParser.PrintContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#print}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitPrint(HwKParser.PrintContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link HwKParser#ifStatement}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterIfStatement(HwKParser.IfStatementContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#ifStatement}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitIfStatement(HwKParser.IfStatementContext ctx);
+
+    /**
      * Enter a parse tree produced by {@link HwKParser#function}.
      *
      * @param ctx the parse tree
@@ -193,20 +275,6 @@ public interface HwKListener extends ParseTreeListener {
     void exitFunction(HwKParser.FunctionContext ctx);
 
     /**
-     * Enter a parse tree produced by {@link HwKParser#ret}.
-     *
-     * @param ctx the parse tree
-     */
-    void enterRet(HwKParser.RetContext ctx);
-
-    /**
-     * Exit a parse tree produced by {@link HwKParser#ret}.
-     *
-     * @param ctx the parse tree
-     */
-    void exitRet(HwKParser.RetContext ctx);
-
-    /**
      * Enter a parse tree produced by {@link HwKParser#functionCall}.
      *
      * @param ctx the parse tree
@@ -219,34 +287,6 @@ public interface HwKListener extends ParseTreeListener {
      * @param ctx the parse tree
      */
     void exitFunctionCall(HwKParser.FunctionCallContext ctx);
-
-    /**
-     * Enter a parse tree produced by {@link HwKParser#value}.
-     *
-     * @param ctx the parse tree
-     */
-    void enterValue(HwKParser.ValueContext ctx);
-
-    /**
-     * Exit a parse tree produced by {@link HwKParser#value}.
-     *
-     * @param ctx the parse tree
-     */
-    void exitValue(HwKParser.ValueContext ctx);
-
-    /**
-     * Enter a parse tree produced by {@link HwKParser#varReference}.
-     *
-     * @param ctx the parse tree
-     */
-    void enterVarReference(HwKParser.VarReferenceContext ctx);
-
-    /**
-     * Exit a parse tree produced by {@link HwKParser#varReference}.
-     *
-     * @param ctx the parse tree
-     */
-    void exitVarReference(HwKParser.VarReferenceContext ctx);
 
     /**
      * Enter a parse tree produced by {@link HwKParser#parameter}.
@@ -275,4 +315,74 @@ public interface HwKListener extends ParseTreeListener {
      * @param ctx the parse tree
      */
     void exitFuncArgs(HwKParser.FuncArgsContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link HwKParser#ret}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterRet(HwKParser.RetContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#ret}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitRet(HwKParser.RetContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link HwKParser#variable}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterVariable(HwKParser.VariableContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#variable}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitVariable(HwKParser.VariableContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link HwKParser#varReference}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterVarReference(HwKParser.VarReferenceContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#varReference}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitVarReference(HwKParser.VarReferenceContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link HwKParser#value}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterValue(HwKParser.ValueContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#value}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitValue(HwKParser.ValueContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link HwKParser#type}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterType(HwKParser.TypeContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#type}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitType(HwKParser.TypeContext ctx);
 }

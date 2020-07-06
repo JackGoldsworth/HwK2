@@ -12,32 +12,18 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
 	/**
 	 * Visit a parse tree produced by {@link HwKParser#compilationUnit}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCompilationUnit(HwKParser.CompilationUnitContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HwKParser#imports}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitImports(HwKParser.ImportsContext ctx);
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitCompilationUnit(HwKParser.CompilationUnitContext ctx);
 
     /**
-     * Visit a parse tree produced by {@link HwKParser#type}.
+     * Visit a parse tree produced by {@link HwKParser#imports}.
      *
      * @param ctx the parse tree
      * @return the visitor result
      */
-    T visitType(HwKParser.TypeContext ctx);
-
-    /**
-     * Visit a parse tree produced by {@link HwKParser#print}.
-     *
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    T visitPrint(HwKParser.PrintContext ctx);
+    T visitImports(HwKParser.ImportsContext ctx);
 
     /**
      * Visit a parse tree produced by {@link HwKParser#statement}.
@@ -46,14 +32,6 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
      * @return the visitor result
      */
     T visitStatement(HwKParser.StatementContext ctx);
-
-    /**
-     * Visit a parse tree produced by {@link HwKParser#variable}.
-     *
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    T visitVariable(HwKParser.VariableContext ctx);
 
     /**
      * Visit a parse tree produced by the {@code VAL}
@@ -92,6 +70,24 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
     T visitADD(HwKParser.ADDContext ctx);
 
     /**
+     * Visit a parse tree produced by the {@code OR}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitOR(HwKParser.ORContext ctx);
+
+    /**
+     * Visit a parse tree produced by the {@code EQUALS}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitEQUALS(HwKParser.EQUALSContext ctx);
+
+    /**
      * Visit a parse tree produced by the {@code MULT}
      * labeled alternative in {@link HwKParser#expression}.
      *
@@ -119,6 +115,49 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
     T visitVAR(HwKParser.VARContext ctx);
 
     /**
+     * Visit a parse tree produced by the {@code GREATER_THAN}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitGREATER_THAN(HwKParser.GREATER_THANContext ctx);
+
+    /**
+     * Visit a parse tree produced by the {@code AND}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitAND(HwKParser.ANDContext ctx);
+
+    /**
+     * Visit a parse tree produced by the {@code LESS_THAN}
+     * labeled alternative in {@link HwKParser#expression}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitLESS_THAN(HwKParser.LESS_THANContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#print}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitPrint(HwKParser.PrintContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#ifStatement}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitIfStatement(HwKParser.IfStatementContext ctx);
+
+    /**
      * Visit a parse tree produced by {@link HwKParser#function}.
      *
      * @param ctx the parse tree
@@ -127,36 +166,12 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
     T visitFunction(HwKParser.FunctionContext ctx);
 
     /**
-     * Visit a parse tree produced by {@link HwKParser#ret}.
-     *
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    T visitRet(HwKParser.RetContext ctx);
-
-    /**
      * Visit a parse tree produced by {@link HwKParser#functionCall}.
      *
      * @param ctx the parse tree
      * @return the visitor result
      */
     T visitFunctionCall(HwKParser.FunctionCallContext ctx);
-
-    /**
-     * Visit a parse tree produced by {@link HwKParser#value}.
-     *
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    T visitValue(HwKParser.ValueContext ctx);
-
-    /**
-     * Visit a parse tree produced by {@link HwKParser#varReference}.
-     *
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    T visitVarReference(HwKParser.VarReferenceContext ctx);
 
     /**
      * Visit a parse tree produced by {@link HwKParser#parameter}.
@@ -173,4 +188,44 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
      * @return the visitor result
      */
     T visitFuncArgs(HwKParser.FuncArgsContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#ret}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitRet(HwKParser.RetContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#variable}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitVariable(HwKParser.VariableContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#varReference}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitVarReference(HwKParser.VarReferenceContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#value}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitValue(HwKParser.ValueContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#type}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitType(HwKParser.TypeContext ctx);
 }

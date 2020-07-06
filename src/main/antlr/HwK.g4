@@ -8,31 +8,47 @@ compilationUnit: (imports | statement | function)* EOF;
 
 imports: '@imp' IMPORTNAME;
 
-type: ID;
-
-print: 'print(' expression ')';
-
-statement: variable | print | functionCall;
-
-variable: 'var' ID '=' expression;
+statement: variable | print | functionCall | ifStatement;
 
 expression: varReference # VAR
           | value # VAL
           | functionCall # FUNC
+          | expression '>' expression # GREATER_THAN
+          | expression '<' expression # LESS_THAN
+          | expression '==' expression # EQUALS
+          | expression '&&' expression # AND
+          | expression '||' expression # OR
           | expression '*' expression # MULT
           | expression '/' expression # DIV
           | expression '-' expression # SUB
           | expression '+' expression # ADD;
 
-function: 'fn' ID '('? parameter* ')'? ('->' type)? '{' statement* ret? '}';
+print: 'print(' expression ')';
 
+/*
+* Control Statements
+*/
+
+ifStatement: 'if' expression 'then' '{' statement* '}' ('else' '{' statement* '}')?;
+
+/*
+* Functions
+*/
+
+function: 'fn' ID ('(' parameter (',' parameter)* ')')? ('->' type)? '{' statement* ret? '}';
+functionCall: ID '(' funcArgs? ')';
+parameter: type ':' ID;
+funcArgs: expression (',' expression)*;
 ret: 'ret' expression;
 
-functionCall: ID '(' funcArgs? ')';
-value: (NUMBER | STRING)+;
+/*
+* Values and Variables
+*/
+
+variable: 'var' ID '=' expression;
 varReference: ID;
-parameter: type ':' ID*;
-funcArgs: expression (',' expression)*;
+value: (NUMBER | STRING)+;
+type: ID;
 
 /*
 * Lexer

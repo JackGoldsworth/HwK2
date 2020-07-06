@@ -35,7 +35,9 @@ class FunctionVisitor(private val upperScope: Scope) : HwKBaseVisitor<Function>(
     }
 
     private fun getParameters(ctx: List<HwKParser.ParameterContext>): List<Parameter> {
-        return ctx.stream().map { Parameter(Type.getTypeFromName(it.type()), it.text.split(":")[1]) }.peek {
+        return ctx.stream().map {
+            Parameter(Type.getTypeFromName(it.type()), it.text.split(":")[1])
+        }.peek {
             scope.localVariables.add(
                 LocalVariable(it.type, it.name)
             )
