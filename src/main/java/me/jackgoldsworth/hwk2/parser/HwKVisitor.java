@@ -7,11 +7,12 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  * by {@link HwKParser}.
  *
  * @param <T> The return type of the visit operation. Use {@link Void} for
- * operations with no return type.
+ *            operations with no return type.
  */
 public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
-	/**
-	 * Visit a parse tree produced by {@link HwKParser#compilationUnit}.
+    /**
+     * Visit a parse tree produced by {@link HwKParser#compilationUnit}.
+     *
      * @param ctx the parse tree
      * @return the visitor result
      */
@@ -206,20 +207,20 @@ public interface HwKVisitor<T> extends ParseTreeVisitor<T> {
     T visitVariable(HwKParser.VariableContext ctx);
 
     /**
-     * Visit a parse tree produced by {@link HwKParser#varReference}.
-     *
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    T visitVarReference(HwKParser.VarReferenceContext ctx);
-
-    /**
      * Visit a parse tree produced by {@link HwKParser#value}.
      *
      * @param ctx the parse tree
      * @return the visitor result
      */
     T visitValue(HwKParser.ValueContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link HwKParser#varReference}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitVarReference(HwKParser.VarReferenceContext ctx);
 
     /**
      * Visit a parse tree produced by {@link HwKParser#type}.

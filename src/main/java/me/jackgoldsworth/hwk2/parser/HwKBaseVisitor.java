@@ -11,14 +11,18 @@ import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
  * operations with no return type.
  */
 public class HwKBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements HwKVisitor<T> {
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitCompilationUnit(HwKParser.CompilationUnitContext ctx) { return visitChildren(ctx); }
-	/**
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation returns the result of calling
+     * {@link #visitChildren} on {@code ctx}.</p>
+     */
+    @Override
+    public T visitCompilationUnit(HwKParser.CompilationUnitContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    /**
      * {@inheritDoc}
      *
      * <p>The default implementation returns the result of calling
@@ -267,7 +271,7 @@ public class HwKBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Hw
      * {@link #visitChildren} on {@code ctx}.</p>
      */
     @Override
-    public T visitVarReference(HwKParser.VarReferenceContext ctx) {
+    public T visitValue(HwKParser.ValueContext ctx) {
         return visitChildren(ctx);
     }
 
@@ -278,7 +282,7 @@ public class HwKBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Hw
      * {@link #visitChildren} on {@code ctx}.</p>
      */
     @Override
-    public T visitValue(HwKParser.ValueContext ctx) {
+    public T visitVarReference(HwKParser.VarReferenceContext ctx) {
         return visitChildren(ctx);
     }
 

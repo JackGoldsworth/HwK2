@@ -46,8 +46,8 @@ ret: 'ret' expression;
 */
 
 variable: 'var' ID '=' expression;
+value: (NUMBER | STRING | BOOL)+;
 varReference: ID;
-value: (NUMBER | STRING)+;
 type: ID;
 
 /*
@@ -56,8 +56,9 @@ type: ID;
 
 WS: [ \t\n\r]+ -> skip;
 NUMBER: (DIGIT | HEX)+;
-ID: LETTER (LETTER | DIGIT)*;
 STRING: '"'.*?'"';
+BOOL: ('true' | 'false')+;
+ID: LETTER (LETTER | DIGIT)*;
 IMPORTNAME: ([a-zA-Z] | '/')+;
 fragment DIGIT: '-'? [0-9]+;
 fragment HEX: '0x' ([0-9] | [a-z] | [A-Z]);

@@ -20,16 +20,22 @@ public class HwKBaseListener implements HwKListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCompilationUnit(HwKParser.CompilationUnitContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterImports(HwKParser.ImportsContext ctx) { }
-	/**
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitCompilationUnit(HwKParser.CompilationUnitContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterImports(HwKParser.ImportsContext ctx) {
+    }
+
+    /**
      * {@inheritDoc}
      *
      * <p>The default implementation does nothing.</p>
@@ -422,24 +428,6 @@ public class HwKBaseListener implements HwKListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void enterVarReference(HwKParser.VarReferenceContext ctx) {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitVarReference(HwKParser.VarReferenceContext ctx) {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
     public void enterValue(HwKParser.ValueContext ctx) {
     }
 
@@ -450,6 +438,24 @@ public class HwKBaseListener implements HwKListener {
      */
     @Override
     public void exitValue(HwKParser.ValueContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterVarReference(HwKParser.VarReferenceContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitVarReference(HwKParser.VarReferenceContext ctx) {
     }
 
     /**
@@ -492,12 +498,17 @@ public class HwKBaseListener implements HwKListener {
      * {@inheritDoc}
      *
      * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void visitTerminal(TerminalNode node) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void visitErrorNode(ErrorNode node) { }
+     */
+    @Override
+    public void visitTerminal(TerminalNode node) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void visitErrorNode(ErrorNode node) {
+    }
 }

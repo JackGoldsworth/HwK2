@@ -63,4 +63,8 @@ class ExpressionVisitor(private val scope: Scope) : HwKBaseVisitor<Expression>()
         val secondVal = ctx.expression(1).accept(this)
         return Division(Type.INT, firstVal, secondVal)
     }
+
+    override fun visitGREATER_THAN(ctx: HwKParser.GREATER_THANContext?): Expression {
+        return super.visitGREATER_THAN(ctx)
+    }
 }

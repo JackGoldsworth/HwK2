@@ -1,9 +1,14 @@
 package me.jackgoldsworth.hwk2.backend
 
+import me.jackgoldsworth.hwk2.ast.DualExpression
 import me.jackgoldsworth.hwk2.ast.Type
 import me.jackgoldsworth.hwk2.ast.expression.Value
 import me.jackgoldsworth.hwk2.ast.expression.VariableReference
-import me.jackgoldsworth.hwk2.ast.expression.math.*
+import me.jackgoldsworth.hwk2.ast.expression.bool.GreaterThan
+import me.jackgoldsworth.hwk2.ast.expression.math.Addition
+import me.jackgoldsworth.hwk2.ast.expression.math.Division
+import me.jackgoldsworth.hwk2.ast.expression.math.Multiply
+import me.jackgoldsworth.hwk2.ast.expression.math.Subtraction
 import me.jackgoldsworth.hwk2.ast.function.scope.Scope
 import me.jackgoldsworth.hwk2.ast.statement.FunctionStatement
 import me.jackgoldsworth.hwk2.optimization.MathOptimization
@@ -23,6 +28,12 @@ class ExpressionGenerator(private val methodVisitor: MethodVisitor, private val 
             methodVisitor.visitIntInsn(Opcodes.BIPUSH, Integer.valueOf(valueVal))
         } else if (value.type === Type.STRING) {
             methodVisitor.visitLdcInsn(valueVal)
+        } else if (value.type === Type.BOOL) {
+            if (valueVal == "false") {
+                methodVisitor.visitInsn(Opcodes.ICONST_0)
+            } else {
+                methodVisitor.visitInsn(Opcodes.ICONST_1)
+            }
         }
     }
 
@@ -33,9 +44,9 @@ class ExpressionGenerator(private val methodVisitor: MethodVisitor, private val 
         val varName = variable.varName
         val index = scope.getIndexOfLocalVariable(varName)
             ?: throw IndexOutOfBoundsException("Variable ${variable.varName} index was not found!")
-        if (variable.type == Type.INT) {
+        if (variable.type === Type.INT || variable.type === Type.BOOL) {
             methodVisitor.visitVarInsn(Opcodes.ILOAD, index)
-        } else if (variable.type == Type.STRING) {
+        } else if (variable.type === Type.STRING) {
             methodVisitor.visitVarInsn(Opcodes.ALOAD, index)
         }
     }
@@ -51,6 +62,11 @@ class ExpressionGenerator(private val methodVisitor: MethodVisitor, private val 
             scope.functions[functionCall.name]?.description,
             false
         )
+    }
+
+    fun generate(greaterThan: GreaterThan) {
+        evaluateExpressions(greaterThan)
+        methodVisitor.visitInsn(Opcodes.IF_ICMPLE)
     }
 
     fun generate(addition: Addition) {
@@ -81,8 +97,8 @@ class ExpressionGenerator(private val methodVisitor: MethodVisitor, private val 
         }
     }
 
-    private fun evaluateExpressions(expression: ArithmeticExpression) {
-        expression.left.accept(this)
-        expression.right.accept(this)
+    private fun evaluateExpressions(expression: DualExpression) {
+        expression.getLeftExp().accept(this)
+        expression.getRightExp().accept(this)
     }
 }

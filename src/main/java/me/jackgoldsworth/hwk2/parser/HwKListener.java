@@ -18,17 +18,21 @@ public interface HwKListener extends ParseTreeListener {
 	 */
 	void exitCompilationUnit(HwKParser.CompilationUnitContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link HwKParser#imports}.
-	 * @param ctx the parse tree
-	 */
-	void enterImports(HwKParser.ImportsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link HwKParser#imports}.
-	 * @param ctx the parse tree
-	 */
-	void exitImports(HwKParser.ImportsContext ctx);
-	/**
+     * Enter a parse tree produced by {@link HwKParser#imports}.
+     * @param ctx the parse tree
+     */
+    void enterImports(HwKParser.ImportsContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#imports}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitImports(HwKParser.ImportsContext ctx);
+
+    /**
      * Enter a parse tree produced by {@link HwKParser#statement}.
+     *
      * @param ctx the parse tree
      */
     void enterStatement(HwKParser.StatementContext ctx);
@@ -345,20 +349,6 @@ public interface HwKListener extends ParseTreeListener {
     void exitVariable(HwKParser.VariableContext ctx);
 
     /**
-     * Enter a parse tree produced by {@link HwKParser#varReference}.
-     *
-     * @param ctx the parse tree
-     */
-    void enterVarReference(HwKParser.VarReferenceContext ctx);
-
-    /**
-     * Exit a parse tree produced by {@link HwKParser#varReference}.
-     *
-     * @param ctx the parse tree
-     */
-    void exitVarReference(HwKParser.VarReferenceContext ctx);
-
-    /**
      * Enter a parse tree produced by {@link HwKParser#value}.
      *
      * @param ctx the parse tree
@@ -371,6 +361,20 @@ public interface HwKListener extends ParseTreeListener {
      * @param ctx the parse tree
      */
     void exitValue(HwKParser.ValueContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link HwKParser#varReference}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterVarReference(HwKParser.VarReferenceContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link HwKParser#varReference}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitVarReference(HwKParser.VarReferenceContext ctx);
 
     /**
      * Enter a parse tree produced by {@link HwKParser#type}.
