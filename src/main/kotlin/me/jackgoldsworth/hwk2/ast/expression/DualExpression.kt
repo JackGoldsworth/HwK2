@@ -1,6 +1,4 @@
-package me.jackgoldsworth.hwk2.ast
-
-import me.jackgoldsworth.hwk2.ast.expression.Expression
+package me.jackgoldsworth.hwk2.ast.expression
 
 interface DualExpression {
 

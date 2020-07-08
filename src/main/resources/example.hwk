@@ -1,7 +1,7 @@
 var param1 = false
-testFunc(param1, 5)
+testFunc(param1, "test")
 
-fn testFunc(Bool: thing, Int: test) -> Bool {
-    print(thing)
+fn testFunc(Bool: thing, String: test) -> Bool {
+    print(test)
     ret thing
 }

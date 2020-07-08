@@ -1,7 +1,7 @@
 package me.jackgoldsworth.hwk2.backend
 
-import me.jackgoldsworth.hwk2.ast.DualExpression
 import me.jackgoldsworth.hwk2.ast.Type
+import me.jackgoldsworth.hwk2.ast.expression.DualExpression
 import me.jackgoldsworth.hwk2.ast.expression.Value
 import me.jackgoldsworth.hwk2.ast.expression.VariableReference
 import me.jackgoldsworth.hwk2.ast.expression.bool.GreaterThan

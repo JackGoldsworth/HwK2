@@ -1,12 +1,13 @@
 package me.jackgoldsworth.hwk2.ast
 
 import me.jackgoldsworth.hwk2.ast.function.Parameter
+import me.jackgoldsworth.hwk2.error.HwkSyntaxError
 import me.jackgoldsworth.hwk2.parser.HwKParser
 import java.util.stream.Collectors
 
 enum class Type(val descriptor: String, val id: String) {
     INT("I", "Int"),
-    STRING("Ljava/lang/String;", "java/lang/String"),
+    STRING("Ljava/lang/String;", "String"),
     BOOL("Z", "Bool"),
     VOID("V", "Void");
 
@@ -19,7 +20,7 @@ enum class Type(val descriptor: String, val id: String) {
                 STRING.id -> return STRING
                 BOOL.id -> return BOOL
             }
-            throw RuntimeException("There was an issue finding the type for: $type")
+            throw HwkSyntaxError("There was an issue finding the type on line ${context.getStart().line} for: $type")
         }
 
         fun getTypeFromValue(value: String): Type {

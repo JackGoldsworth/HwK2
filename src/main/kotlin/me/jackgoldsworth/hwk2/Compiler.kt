@@ -2,11 +2,11 @@ package me.jackgoldsworth.hwk2
 
 import me.jackgoldsworth.hwk2.ast.CompilationUnit
 import me.jackgoldsworth.hwk2.backend.ByteCodeGenerator
+import me.jackgoldsworth.hwk2.error.HwKErrorListener
 import me.jackgoldsworth.hwk2.parser.HwKLexer
 import me.jackgoldsworth.hwk2.parser.HwKParser
 import me.jackgoldsworth.hwk2.visitor.CompilationVisitor
 import org.antlr.v4.runtime.ANTLRFileStream
-import org.antlr.v4.runtime.CharStream
 import org.antlr.v4.runtime.CommonTokenStream
 import java.io.File
 
@@ -16,10 +16,13 @@ class Compiler {
      * This parses a file and gets the instructions from it.
      */
     fun getCompilationUnit(path: String): CompilationUnit {
-        val stream: CharStream = ANTLRFileStream(path)
+        val stream = ANTLRFileStream(path)
         val lexer = HwKLexer(stream)
         val tokenStream = CommonTokenStream(lexer)
+
         val parser = HwKParser(tokenStream)
+        parser.addErrorListener(HwKErrorListener())
+
         val splitStr = path.split('\\')
         val visitor = CompilationVisitor(splitStr[splitStr.size - 1])
         return parser.compilationUnit().accept(visitor)
