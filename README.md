@@ -1,3 +1,5 @@
+<p align="center"><img width="150" height="70" src="./HwK-Logo.png" alt="HwK Logo"></p>
+
 [![Build Status](https://api.travis-ci.org/JackGoldsworth/HwK2.svg?branch=master)](https://travis-ci.org/JackGoldsworth/HwK2)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=JackGoldsworth_HwK2&metric=alert_status)](https://sonarcloud.io/dashboard?id=JackGoldsworth_HwK2)
 
