@@ -1,4 +1,4 @@
-var param1 = false
+var param1 = true && true
 testFunc(param1, "test")
 
 fn testFunc(Bool: thing, String: test) -> Bool {

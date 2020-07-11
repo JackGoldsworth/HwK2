@@ -4,6 +4,7 @@ import me.jackgoldsworth.hwk2.ast.Type
 import me.jackgoldsworth.hwk2.ast.expression.DualExpression
 import me.jackgoldsworth.hwk2.ast.expression.Value
 import me.jackgoldsworth.hwk2.ast.expression.VariableReference
+import me.jackgoldsworth.hwk2.ast.expression.bool.AndExpression
 import me.jackgoldsworth.hwk2.ast.expression.bool.GreaterThan
 import me.jackgoldsworth.hwk2.ast.expression.math.Addition
 import me.jackgoldsworth.hwk2.ast.expression.math.Division
@@ -12,6 +13,7 @@ import me.jackgoldsworth.hwk2.ast.expression.math.Subtraction
 import me.jackgoldsworth.hwk2.ast.function.scope.Scope
 import me.jackgoldsworth.hwk2.ast.statement.FunctionStatement
 import me.jackgoldsworth.hwk2.optimization.MathOptimization
+import org.objectweb.asm.Label
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
@@ -64,9 +66,16 @@ class ExpressionGenerator(private val methodVisitor: MethodVisitor, private val 
         )
     }
 
-    fun generate(greaterThan: GreaterThan) {
-        evaluateExpressions(greaterThan)
-        methodVisitor.visitInsn(Opcodes.IF_ICMPLE)
+    fun generate(andExpression: AndExpression) {
+        evaluateExpressions(andExpression)
+        val trueLabel = Label()
+        val endLabel = Label()
+        methodVisitor.visitJumpInsn(Opcodes.IF_ICMPEQ,trueLabel)
+        methodVisitor.visitInsn(Opcodes.ICONST_0)
+        methodVisitor.visitJumpInsn(Opcodes.GOTO, endLabel)
+        methodVisitor.visitLabel(trueLabel)
+        methodVisitor.visitInsn(Opcodes.ICONST_1)
+        methodVisitor.visitLabel(endLabel)
     }
 
     fun generate(addition: Addition) {
