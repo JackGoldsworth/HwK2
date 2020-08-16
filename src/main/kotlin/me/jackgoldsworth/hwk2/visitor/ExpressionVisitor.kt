@@ -5,6 +5,7 @@ import me.jackgoldsworth.hwk2.ast.expression.Expression
 import me.jackgoldsworth.hwk2.ast.expression.Value
 import me.jackgoldsworth.hwk2.ast.expression.VariableReference
 import me.jackgoldsworth.hwk2.ast.expression.bool.AndExpression
+import me.jackgoldsworth.hwk2.ast.expression.bool.EqualsExpression
 import me.jackgoldsworth.hwk2.ast.expression.math.Addition
 import me.jackgoldsworth.hwk2.ast.expression.math.Division
 import me.jackgoldsworth.hwk2.ast.expression.math.Multiply
@@ -69,5 +70,11 @@ class ExpressionVisitor(private val scope: Scope) : HwKBaseVisitor<Expression>()
         val firstVal = ctx.expression(0).accept(this)
         val secondVal = ctx.expression(1).accept(this)
         return AndExpression(firstVal, secondVal)
+    }
+
+    override fun visitEQUALS(ctx: HwKParser.EQUALSContext): Expression {
+        val firstVal = ctx.expression(0).accept(this)
+        val secondVal = ctx.expression(1).accept(this)
+        return EqualsExpression(firstVal, secondVal)
     }
 }

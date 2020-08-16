@@ -5,7 +5,7 @@ import me.jackgoldsworth.hwk2.ast.expression.DualExpression
 import me.jackgoldsworth.hwk2.ast.expression.Value
 import me.jackgoldsworth.hwk2.ast.expression.VariableReference
 import me.jackgoldsworth.hwk2.ast.expression.bool.AndExpression
-import me.jackgoldsworth.hwk2.ast.expression.bool.GreaterThan
+import me.jackgoldsworth.hwk2.ast.expression.bool.EqualsExpression
 import me.jackgoldsworth.hwk2.ast.expression.math.Addition
 import me.jackgoldsworth.hwk2.ast.expression.math.Division
 import me.jackgoldsworth.hwk2.ast.expression.math.Multiply
@@ -67,15 +67,13 @@ class ExpressionGenerator(private val methodVisitor: MethodVisitor, private val 
     }
 
     fun generate(andExpression: AndExpression) {
-        evaluateExpressions(andExpression)
-        val trueLabel = Label()
-        val endLabel = Label()
-        methodVisitor.visitJumpInsn(Opcodes.IF_ICMPEQ,trueLabel)
-        methodVisitor.visitInsn(Opcodes.ICONST_0)
-        methodVisitor.visitJumpInsn(Opcodes.GOTO, endLabel)
-        methodVisitor.visitLabel(trueLabel)
-        methodVisitor.visitInsn(Opcodes.ICONST_1)
-        methodVisitor.visitLabel(endLabel)
+//        evaluateExpressions(andExpression)
+//        generateBooleanExpression(Opcodes.IF_ICMPEQ)
+    }
+
+    fun generate(equalsExpression: EqualsExpression) {
+        evaluateExpressions(equalsExpression)
+        generateBooleanExpression(Opcodes.IF_ICMPEQ)
     }
 
     fun generate(addition: Addition) {
@@ -109,5 +107,16 @@ class ExpressionGenerator(private val methodVisitor: MethodVisitor, private val 
     private fun evaluateExpressions(expression: DualExpression) {
         expression.getLeftExp().accept(this)
         expression.getRightExp().accept(this)
+    }
+
+    private fun generateBooleanExpression(opcode: Int) {
+        val trueLabel = Label()
+        val endLabel = Label()
+        methodVisitor.visitJumpInsn(opcode, trueLabel)
+        methodVisitor.visitInsn(Opcodes.ICONST_0)
+        methodVisitor.visitJumpInsn(Opcodes.GOTO, endLabel)
+        methodVisitor.visitLabel(trueLabel)
+        methodVisitor.visitInsn(Opcodes.ICONST_1)
+        methodVisitor.visitLabel(endLabel)
     }
 }
