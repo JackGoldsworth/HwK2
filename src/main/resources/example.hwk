@@ -1,7 +1,10 @@
-var param1 = "test" == "false"
-testFunc(param1, "test")
+var param1 = "Test"
+var param2 = 5
+var response = testFunc(param1, param2)
+print(response)
 
-fn testFunc(Bool: thing, String: test) -> Bool {
+fn testFunc(String: thing, Int: test) -> String {
+    print(thing)
     print(test)
     ret thing
 }

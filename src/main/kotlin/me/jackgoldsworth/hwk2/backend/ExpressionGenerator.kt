@@ -29,7 +29,7 @@ class ExpressionGenerator(private val methodVisitor: MethodVisitor, private val 
         if (value.type === Type.INT) {
             methodVisitor.visitIntInsn(Opcodes.BIPUSH, Integer.valueOf(valueVal))
         } else if (value.type === Type.STRING) {
-            methodVisitor.visitLdcInsn(valueVal)
+            methodVisitor.visitLdcInsn(valueVal.replace("\"", ""))
         } else if (value.type === Type.BOOL) {
             if (valueVal == "false") {
                 methodVisitor.visitInsn(Opcodes.ICONST_0)
